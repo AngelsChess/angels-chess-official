@@ -1,1 +1,297 @@
 
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天使象棋 | 官方参考页</title><meta name="google-site-verification" content="n55z71GH5WBuPa1FcowrtyjZCFF_s81OijHtBtKdHZs" />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #fff;
+      color: #000;
+      font-family: Baskerville, "Libre Baskerville", Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+    .page { width: min(860px, calc(100% - 28px)); margin: 0 auto; }
+    .lang-bar { display: flex; justify-content: flex-end; align-items: center; gap: 6px; padding: 10px 0 8px; font-size: 14px; border-bottom: 1px solid #e0e0e0; }
+    .lang-bar span { color: #888; margin-right: 4px; }
+    .lang-bar a { color: #000; text-decoration: none; border: 1px solid #ccc; padding: 3px 10px; border-radius: 2px; font-size: 13px; }
+    .lang-bar a:hover { background: #000; color: #fff; border-color: #000; }
+    .lang-bar a.active { background: #000; color: #fff; border-color: #000; font-weight: bold; }
+    header { text-align: center; padding: 44px 0 24px; border-bottom: 2px solid #000; }
+    .welcome { margin: 0 0 6px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #777; }
+    h1 { margin: 0 0 8px; font-size: clamp(36px, 7vw, 68px); line-height: 1; }
+    .tagline { margin: 0 auto 20px; max-width: 680px; font-size: clamp(16px, 2.2vw, 20px); font-style: italic; color: #333; }
+    .turing { margin: 0 auto 24px; font-size: clamp(18px, 2.8vw, 26px); font-style: italic; }
+    .challenge, .objective { margin: 0 auto 22px; max-width: 720px; border-left: 4px solid #000; padding: 16px 22px; background: #f7f7f7; text-align: left; }
+    .objective { border-left-color: #555; background: #f0f0f0; }
+    .challenge strong, .objective strong { display: block; margin-bottom: 8px; font-size: 16px; }
+    .challenge p, .objective p { margin: 0 0 8px; font-size: 15px; color: #333; line-height: 1.7; }
+    .challenge p:last-child, .objective p:last-child { margin: 0; }
+    figure { margin: 0 auto 32px; text-align: center; max-width: 720px; }
+    figure img { display: block; width: 100%; max-height: 560px; object-fit: contain; margin: 0 auto; }
+    figcaption { margin: 10px auto 0; font-size: 13px; font-style: italic; color: #666; max-width: 600px; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 36px; }
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    section { padding: 38px 0; border-top: 1px solid #ccc; }
+    h2 { margin: 0 0 18px; font-size: clamp(24px, 4vw, 36px); }
+    h3 { margin: 0 0 10px; font-size: 20px; }
+    p { margin: 0 0 14px; color: #222; font-size: 17px; }
+    .lead { font-size: 18px; color: #111; }
+    .img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+    .img-row figure { margin: 0; }
+    .img-row img { width: 100%; max-height: 340px; object-fit: contain; }
+    .pieces-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 20px 0; }
+    .pieces-grid figure { margin: 0; text-align: center; }
+    .pieces-grid img { width: 100%; max-height: 260px; object-fit: contain; }
+    .pieces-grid figcaption { font-size: 13px; font-style: italic; color: #666; margin-top: 6px; }
+    .legal-box { padding: 16px 20px; border: 1px solid #000; border-left: 5px solid #000; font-size: 15px; background: #f9f9f9; margin-top: 16px; line-height: 1.8; }
+    .legal-box strong { color: #000; }
+    .legal-box a { color: #000; }
+    .legal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+    .legal-item { border: 1px solid #000; padding: 16px; font-size: 14px; }
+    .legal-item strong { display: block; margin-top: 4px; overflow-wrap: anywhere; font-size: 15px; }
+    .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+    .card { border: 1px solid #ccc; padding: 18px; }
+    .card h3 { font-size: 16px; margin-bottom: 8px; }
+    .card p { font-size: 15px; margin: 0; color: #444; }
+    .qr-section { text-align: center; border: 2px solid #000; padding: 32px 28px; margin: 32px 0; }
+    .qr-section h2 { margin-bottom: 10px; }
+    .qr-section p { font-size: 16px; color: #333; }
+    .qr-img { display: block; width: 150px; height: 150px; margin: 18px auto; image-rendering: pixelated; }
+    .url { display: inline-block; border: 1px solid #000; padding: 9px 16px; margin-top: 10px; font-size: 14px; overflow-wrap: anywhere; color: #000; text-decoration: none; }
+    .url:hover { background: #000; color: #fff; }
+    footer { border-top: 1px solid #000; text-align: center; padding: 26px 0 38px; font-size: 14px; color: #555; }
+    @media (max-width: 640px) {
+      .img-row, .pieces-grid, .legal-grid, .card-grid { grid-template-columns: 1fr; }
+      .lang-bar { justify-content: center; }
+    }
+
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    .nav-soon { color: #000 !important; text-decoration: none !important; background: #f2f2f2 !important; border: 1px solid #ddd !important; padding: 7px 16px; font-size: 14px; cursor: default !important; font-style: italic; }
+
+    </style>
+</head>
+<body>
+<main class="page">
+
+        <div class="lang-bar">
+    <span>🌐</span>
+    <a href="https://angelschess.github.io/angels-chess-official/shakhmaty-angelov.html">RU</a>
+    <a href="https://angelschess.github.io/angels-chess-official/">EN</a>
+    <a href="https://angelschess.github.io/angels-chess-official/engle-sjakk.html">NO</a>
+    <a href="https://angelschess.github.io/angels-chess-official/ajedrez-de-los-angeles.html">ES</a>
+    <a href="https://angelschess.github.io/angels-chess-official/zh/index.html" class="active">中文</a>
+    <a href="https://angelschess.github.io/angels-chess-official/co-vua-thien-than.html">VI</a>
+    <a href="https://angelschess.github.io/angels-chess-official/hreshtakneri-shakhmat.html">ՀՅ</a>
+    <a href="https://angelschess.github.io/angels-chess-official/echecs-des-anges.html">FR</a>
+    <a href="https://angelschess.github.io/angels-chess-official/engla-skak.html">IS</a>
+    <a href="https://angelschess.github.io/angels-chess-official/melekler-satranci.html">TR</a>
+    <a href="https://angelschess.github.io/angels-chess-official/tenshi-no-chesu.html">日本語</a>
+    <a href="https://angelschess.github.io/angels-chess-official/shachmat-hamalachim.html">עב</a>
+    <a href="https://angelschess.github.io/angels-chess-official/shatranj-malaika.html">عر</a>
+    <a href="https://angelschess.github.io/angels-chess-official/senterej.html">አማ</a>
+  </div>
+
+<nav aria-label="Page sections">
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:4px 0 10px;">
+      <a href="#about">关于天使象棋</a>
+      <a href="#board">棋盘</a>
+      <a href="#pieces">天使棋子</a>
+      <a href="#legal">法律信息</a>
+      <a href="#research">研究价值</a>
+      <a href="#qr">二维码</a>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:0 0 6px;">
+      <a href="#" class="nav-soon">购买游戏规则与法律</a>
+      <a href="#" class="nav-soon">下载算法规则集</a>
+    </div>
+    <p style="text-align:center; font-size:12px; color:#999; margin:4px 0 0; font-style:italic; letter-spacing:0.5px;">即将推出 — 开发中</p>
+  </nav>
+
+  <header id="top">
+    <p class="welcome">欢迎</p>
+    <h1>天使象棋</h1>
+    <p class="tagline">专为人机协作时代设计的国际象棋变体。</p>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/Gemini_Generated_Image_guthxtguthxtguth.png" alt="寓意封面艺术"></figure>
+    <div class="challenge">
+      <strong>挑战</strong>
+      <p>国际象棋是一种有限的、可计算的游戏——理论上可解，但尚未被解决。然而更为隐蔽的事情已经发生：AI引擎积累了如此丰富的知识，使得人类的直觉、创造力和经验不再具有实质性优势。</p>
+      <p>天使象棋正是为此而生。其条件激活机制引入了结构性不确定性，任何引擎都无法完全预判——因为它完全取决于对手自身的决策。</p>
+    </div>
+    <div class="objective">
+      <strong>目标</strong>
+      <p>恢复人与机器之间公平、均衡的竞争。天使象棋引入了一种新的逻辑维度——不是更多棋子，不是更大棋盘，而是一种新型条件因果关系——使人类的直觉和创造力能够与人工智能在平等条件下竞争。</p>
+      <p>该变体还开启了一种新的合作形式：人类和AI可以共同探索一个双方都没有积累优势的空间，使其成为联合研究、学习和发现的独特领域。</p>
+    </div>
+    
+  </header>
+    
+    <section id="about">
+    <h2>关于天使象棋</h2>
+    <p class="lead">天使象棋源于一个简单的问题：在人工智能已超越人类棋手的时代，象棋还能继续进化吗？</p>
+    <p>几个世纪以来，象棋一直代表着人类最伟大的智识成就之一——在一套精妙的规则体系中融合了数学计算、逻辑推理、创造力、直觉与长远战略思维。然而今天，顶级竞技越来越依赖人工智能辅助的准备工作。现代引擎每秒分析数百万个局面，并得益于数十年积累的开局理论、残局数据库和计算机生成的知识。</p>
+    <p>天使象棋正是为回应这一新现实而诞生。它不是要取代经典象棋，而是寻求扩展它。游戏保留了传统象棋的熟悉基础，同时引入了全新的战略环境：68格棋盘、四个天使翼格、每方两枚天使棋子，以及独特的条件激活机制。</p>
+    <p>与所有传统棋子不同，天使在整局游戏中并不具备相同的能力。它以非激活状态开始，只有当对方棋手越过领土边界时才完全发挥效力。一方的战略决策永久改变了另一方的可能性。这条简单的规则改变了游戏的决策树。</p>
+    <p>在经典象棋中，每枚棋子从开局到终局都有固定的合法走法。天使象棋引入了一个新概念：<strong>状态相关棋子</strong>。天使的能力取决于局面的演变历史，而不仅仅是几何位置。每次领土推进都必须评估不仅获得的空间，还要考虑给对手带来的战略机会。</p>
+    <p>目标不是让象棋变得随机。目标是用创造力战胜记忆力，用战略适应取代重复，用原创思维超越积累的数据库知识。</p>
+    <p>因此，天使象棋也是人工智能研究的有趣平台。该变体提供了一个新环境，用于研究搜索算法、评估函数、强化学习和人机协作——无需依赖数百年的现有开局理论。</p>
+    <p><em>每局比赛都从未知领域开始。每个局面都邀请新思路。每次入侵都带来后果。</em></p>
+  </section>
+  <section id="board">
+    <h2>官方棋盘</h2>
+    <div class="img-row">
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image7.png" alt="68格棋盘"><figcaption>官方68格棋盘，带有四个侧翼天使翼延伸区域。</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image15.png" alt="坐标系统"><figcaption>官方坐标系统：列a–h及侧翼格x4、x5、y4、y5。</figcaption></figure>
+    </div>
+    <p>从白方左侧起的列顺序：<strong>X, a, b, c, d, e, f, g, h, Y</strong>。天使缩写为 <strong>G</strong>。</p>
+    <div class="legal-box"><strong>欧盟注册工业设计：</strong>68格棋盘 — EUIPO编号 <strong>015110333-0001</strong></div>
+  
+    <p>我们拿起经典的8×8棋盘，问道：如果再有四个格子——两侧各两个，正好是天使开始的位置，会怎样？结果就是一个68格的棋盘。中央网格与经典象棋完全相同。四个新格子——x4、x5、y4和y5——称为天使翼。它们是真实的格子：任何棋子都可以进入、封锁或在其上吃子。</p>
+    <p>我们还创建了一条边界。第4行和第5行形成了边境——分隔两个领地的界线。当对方棋子越过你的边境时，你的天使就会觉醒。这就是游戏的核心。</p>
+  
+    </section>
+  <section id="pieces">
+    <h2>天使棋子</h2>
+    <p class="lead">每位玩家开局拥有18枚棋子：16枚传统棋子加2枚天使。</p>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/image2.png" alt="白天使与黑天使"><figcaption>白天使与黑天使——双色、以兵为灵感的设计。</figcaption></figure>
+    <div class="pieces-grid">
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image16.png" alt="白天使正面"><figcaption>白天使——正面。</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image17.png" alt="白天使透视"><figcaption>白天使——透视图。</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image18.png" alt="黑天使正面"><figcaption>黑天使——正面。</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image19.png" alt="黑天使透视"><figcaption>黑天使——透视图。</figcaption></figure>
+    </div>
+    <div class="legal-box"><strong>欧盟注册工业设计：</strong><br>黑天使 — EUIPO编号 <strong>015111340-0001</strong><br>白天使 — EUIPO编号 <strong>015111340-0002</strong></div>
+  
+    <p>我们设计了一枚不会先攻的棋子。天使从睡眠状态开始——它占据自己的格子，封锁线路，但无法移动或控制。它在等待。这不是弱点。这是一个设计决定：一枚力量完全取决于对手选择做什么的棋子。</p>
+    <p>当对手越过边境时，天使被激活。从那一刻起，它沿直线移动恰好3格——水平、垂直或对角——只要两个中间格子是空的。它不能吃传统棋子。它控制它能到达的格子，即使那个格子被占据。如果国王站在被控制的格子上，就是将军。</p>
+    <p>这创造了我们所说的<strong>意外节点</strong>：游戏树中的一个时刻，一个看似纯粹进攻性的行动——越过边境——突然为对手产生了新的防御可能性。局面以任何在经典象棋上训练的引擎都无法完全预测的方式分叉。入侵触发了之前不存在的东西。</p>
+    <p>还有一条规则：在游戏开始之前，黑方将一枚天使向中心移动3格。这是预备开局——必须进行，简单明了，不会激活任何东西。这是黑方平衡白方先手优势的方式。</p>
+    <p><em>如果你热爱象棋，这个游戏是为你而做的。棋盘会让你感到熟悉。规则很少。但当天使被激活的那一刻——领土发生变化——你会明白我们为什么创造了它。来玩吧。</em></p>
+  </section>
+
+  <section id="why-angels" style="padding:38px 0; border-top:1px solid #ccc;">
+    <h2>为什么是天使象棋？</h2>
+    <p class="lead"><em>从游戏设计和计算理论的角度</em></p>
+
+    <h3>1. 积累开局理论的终结</h3>
+    <p>现代象棋已被计算机深度理论化。Stockfish、Leela Chess Zero和AlphaZero分析了数百万局棋，生成了延伸到第30步甚至更远的开局知识。一枚能产生意外节点的棋子从第1步起就使这些积累的知识失效，迫使双方——人类和机器——都要基于基本战略原则进行推理，而非检索记忆的棋路。</p>
+
+    <h3>2. 传统象棋引擎的崩溃</h3>
+    <p>基于阿尔法-贝塔剪枝和暴力计算的引擎在面对天使时会遭遇组合爆炸。但问题不仅仅是规模：搜索树不再是静态的。每个节点的价值取决于棋盘外的一个变量——天使的激活状态——这在经典象棋中并不存在。游戏奖励人类直觉和心理灵活性，而非深层、僵硬的计算。</p>
+
+    <h3>3. 结构性不确定性：永久的B计划</h3>
+    <p>经典象棋是完美的抽象战争：所有信息可见，没有随机性，没有迷雾。天使以结构性而非随机的方式引入迷雾。每次领土推进都激活了之前不存在的资源。入侵的棋手知道自己在做什么——但无法精确计算该激活在未来将产生什么局面。B计划不再是一个选项，而成为永久的战略必需。</p>
+
+    <h3>4. 信息不对称与延迟因果</h3>
+    <p>在经典象棋中，所有信息随时都在棋盘上——这是一个完全信息游戏。天使引入了质性上的新内容：一个变化时刻取决于对手未来决策的变量。这不是随机不确定性，而是战略不确定性：入侵的棋手知道他们将激活对手的天使，但无法知道该激活对一个尚不存在的局面会产生什么确切后果。这在象棋历史上从未发生过。</p>
+
+    <div style="border-left:4px solid #000; padding:16px 22px; background:#f7f7f7; margin-top:32px;">
+      <h3 style="margin-top:0;">来自未来的信息</h3>
+      <p><em>天使象棋的诞生不是为了与经典象棋竞争，而是为了延伸它。</em></p>
+      <p>2017年，AlphaZero证明了一个能从零开始学习的系统——没有先验知识，没有开局理论，没有数据库——能在几小时内超越训练了数十年的最强引擎Stockfish。世界目睹了超越象棋本身的事物：纯粹学习能够超越积累知识的证明。</p>
+      <p>天使象棋将同样的逻辑带到物理棋盘上。每局棋从零开始。没有引擎积累优势。没有数据库帮助。能够读懂激活时机的棋手——理解何时入侵、何时等待——拥有任何算法都无法用计算时间购买的优势。</p>
+      <p><em>这是未来的棋盘：不更大，不更快，而是结构上更诚实。一个人类智慧与人工智能可以面对面坐下的棋盘，双方都没有预先准备好的答案。等待他们双方的游戏。</em></p>
+    </div>
+  </section>
+  <section id="heritage" style="padding:38px 0; border-top:1px solid #ccc;">
+    <h2>一个属于所有人的游戏</h2>
+    <p class="lead" style="margin-bottom:28px;">天使象棋建立在一个塑造了文明的游戏之上。这个网站的每种语言都承载着一段历史。</p>
+    <div style="border-left: 4px solid #000; padding:20px 24px; background:#f9f9f9;">
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">RU — 俄语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">棋盘是哲学战场，也是一代代智识巨人的永恒摇篮。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">EN — 英语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">使这场游戏走向全球的语言，由鲍比·菲舍尔颠覆性的孤独天才所铭记。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">NO — 挪威语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">现代时代的镜子，马格努斯·卡尔森的直觉与绝对冷静重新定义了人类的极限。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">ES — 西班牙语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">棋盘上永恒的优雅与诗意，从卡帕布兰卡的天才到正在重塑伊比利亚象棋的新一代。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">中文 — 中文</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">千年的耐心与集体纪律，指向当今精英的绝对统治。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">VI — 越南语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">充满活力的能量与战术敏锐，一股正在改变东南亚的新兴力量。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">ՀՅ — 亚美尼亚语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">一个将象棋视为民族认同与智识生存方式的国家。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">FR — 法语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">塑造了西方象棋思想的经典传统与战略精髓。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">IS — 冰岛语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">地理孤立化为神秘，1972年那场传奇地缘政治对决的永恒见证者。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">TR — 土耳其语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">新一代的默默耕耘，正在构建棋盘的未来。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">日本語 — 日语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">千年东方战术传统与全球象棋之间的技术桥梁。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">עב — 希伯来语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">跨越数代人的分析敏锐与对战术完美的不懈追求。</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">عر — 阿拉伯语</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">沙特兰吉的远古回声，一千多年前一切开始的神话根源。</p>
+      </div>
+    </div>
+  </section>
+  <section id="qr">
+    <div class="qr-section">
+      
+      
+      <img class="qr-img" src="https://angelschess.github.io/angels-chess-official/qrcode-angel-chess.png" alt="">
+      <div><a class="url" href="https://angelschess.github.io/angels-chess-official/">angelschess.github.io/angels-chess-official/</a></div>
+    </div>
+  </section>
+
+  <section id="closing">
+    <h2>法律和注册信息</h2>
+    <div class="legal-grid">
+      <div class="legal-item">68格棋盘<strong>EUIPO 015110333-0001</strong></div>
+      <div class="legal-item">黑天使<strong>EUIPO 015111340-0001</strong></div>
+      <div class="legal-item">白天使<strong>EUIPO 015111340-0002</strong></div>
+    </div>
+    <div class="legal-box" style="margin-top:16px;">
+      <strong>版权：</strong>© 2025–2026 Nuño Alberto Valenzuela Alonso。保留所有权利。<br>
+      未经书面授权，禁止复制。<br>
+      <strong>Safe Creative：</strong>已注册。<br><br>
+      <strong>代码仓库：</strong><a href="https://github.com/AngelsChess/angels-chess-official">github.com/AngelsChess/angels-chess-official</a><br>
+      <strong>EUIPO验证：</strong>euipo.europa.eu/eSearch · 编号 015110333-0001
+    </div>
+    <div class="legal-box" style="margin-top:14px; border-left-color:#555;">
+      <strong>进行中的工作：</strong><br>
+      · 规则的算法形式化（状态空间建模）。仿真引擎代码将在此平台发布。<br>
+      · <strong>即将发布：</strong>游戏规则与法律（完整版）。<br>
+      · 正在将规则转化为数学可计算数据模型；代码将公开共享。
+    </div>
+  </section>
+  <footer><strong>天使象棋</strong> · © 2025–2026 Nuño Alberto Valenzuela Alonso。保留所有权利。</footer>
+
+
+</main>
+</body>
+</html>
