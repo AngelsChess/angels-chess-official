@@ -1,1 +1,279 @@
 
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engle Sjakk | Offisiell referanseside</title> <meta name="google-site-verification" content="n55z71GH5WBuPa1FcowrtyjZCFF_s81OijHtBtKdHZs" />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #fff; color: #000;
+      font-family: Baskerville, "Libre Baskerville", Georgia, serif;
+      font-size: 17px; line-height: 1.75; }
+    .page { width: min(860px, calc(100% - 28px)); margin: 0 auto; }
+    .lang-bar { display: flex; justify-content: flex-end; align-items: center;
+      gap: 5px; padding: 10px 0 8px; font-size: 13px;
+      border-bottom: 1px solid #e0e0e0; flex-wrap: wrap; }
+    .lang-bar span { color: #888; margin-right: 4px; }
+    .lang-bar a { color: #000; text-decoration: none; border: 1px solid #ccc;
+      padding: 3px 8px; border-radius: 2px; font-size: 12px; }
+    .lang-bar a:hover { background: #000; color: #fff; border-color: #000; }
+    .lang-bar a.active { background: #000; color: #fff; border-color: #000; font-weight: bold; }
+    header { text-align: center; padding: 44px 0 24px; border-bottom: 2px solid #000; }
+    .welcome { margin: 0 0 6px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #777; }
+    h1 { margin: 0 0 8px; font-size: clamp(36px, 7vw, 68px); line-height: 1; }
+    .tagline { margin: 0 auto 20px; max-width: 680px; font-size: clamp(16px,2.2vw,20px); font-style: italic; color: #333; }
+    .turing { margin: 0 auto 24px; font-size: clamp(18px,2.8vw,26px); font-style: italic; }
+    .challenge, .objective { margin: 0 auto 22px; max-width: 720px; border-left: 4px solid #000;
+      padding: 16px 22px; background: #f7f7f7; text-align: left; }
+    .objective { border-left-color: #555; background: #f0f0f0; }
+    .challenge strong, .objective strong { display: block; margin-bottom: 8px; font-size: 16px; }
+    .challenge p, .objective p { margin: 0 0 8px; font-size: 15px; color: #333; line-height: 1.7; }
+    .challenge p:last-child, .objective p:last-child { margin: 0; }
+    figure { margin: 0 auto 32px; text-align: center; max-width: 720px; }
+    figure img { display: block; width: 100%; max-height: 560px; object-fit: contain; margin: 0 auto; }
+    figcaption { margin: 10px auto 0; font-size: 13px; font-style: italic; color: #666; max-width: 600px; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 36px; }
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    section { padding: 38px 0; border-top: 1px solid #ccc; }
+    h2 { margin: 0 0 18px; font-size: clamp(24px,4vw,36px); }
+    h3 { margin: 0 0 10px; font-size: 20px; }
+    p { margin: 0 0 14px; color: #222; font-size: 17px; }
+    .lead { font-size: 18px; color: #111; }
+    .img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+    .img-row figure { margin: 0; }
+    .img-row img { width: 100%; max-height: 340px; object-fit: contain; }
+    .pieces-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 20px 0; }
+    .pieces-grid figure { margin: 0; text-align: center; }
+    .pieces-grid img { width: 100%; max-height: 260px; object-fit: contain; }
+    .pieces-grid figcaption { font-size: 13px; font-style: italic; color: #666; margin-top: 6px; }
+    .legal-box { padding: 16px 20px; border: 1px solid #000; border-left: 5px solid #000;
+      font-size: 15px; background: #f9f9f9; margin-top: 16px; line-height: 1.8; }
+    .legal-box strong { color: #000; } .legal-box a { color: #000; }
+    .legal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 18px; }
+    .legal-item { border: 1px solid #000; padding: 16px; font-size: 14px; }
+    .legal-item strong { display: block; margin-top: 4px; overflow-wrap: anywhere; font-size: 15px; }
+    .card-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 20px; }
+    .card { border: 1px solid #ccc; padding: 18px; }
+    .card h3 { font-size: 16px; margin-bottom: 8px; }
+    .card p { font-size: 15px; margin: 0; color: #444; }
+    .qr-section { text-align: center; border: 2px solid #000; padding: 32px 28px; margin: 32px 0; }
+    .qr-img { display: block; width: 150px; height: 150px; margin: 18px auto; image-rendering: pixelated; }
+    .url { display: inline-block; border: 1px solid #000; padding: 9px 16px; margin-top: 10px;
+      font-size: 14px; overflow-wrap: anywhere; color: #000; text-decoration: none; }
+    .url:hover { background: #000; color: #fff; }
+    footer { border-top: 1px solid #000; text-align: center; padding: 26px 0 38px; font-size: 14px; color: #555; }
+    @media (max-width: 640px) {
+      .img-row, .pieces-grid, .legal-grid, .card-grid { grid-template-columns: 1fr; }
+      .lang-bar { justify-content: center; }
+    }
+
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    .nav-soon { color: #000 !important; text-decoration: none !important; background: #f2f2f2 !important; border: 1px solid #ddd !important; padding: 7px 16px; font-size: 14px; cursor: default !important; font-style: italic; }
+
+    </style>
+</head>
+<body>
+<main class="page">
+      <div class="lang-bar">
+    <span>🌐</span>
+    <a href="https://angelschess.github.io/angels-chess-official/shakhmaty-angelov.html">RU</a>
+    <a href="https://angelschess.github.io/angels-chess-official/">EN</a>
+    <a href="https://angelschess.github.io/angels-chess-official/engle-sjakk.html" class="active">NO</a>
+    <a href="https://angelschess.github.io/angels-chess-official/ajedrez-de-los-angeles.html">ES</a>
+    <a href="https://angelschess.github.io/angels-chess-official/zh/index.html">中文</a>
+    <a href="https://angelschess.github.io/angels-chess-official/co-vua-thien-than.html">VI</a>
+    <a href="https://angelschess.github.io/angels-chess-official/hreshtakneri-shakhmat.html">ՀՅ</a>
+    <a href="https://angelschess.github.io/angels-chess-official/echecs-des-anges.html">FR</a>
+    <a href="https://angelschess.github.io/angels-chess-official/engla-skak.html">IS</a>
+    <a href="https://angelschess.github.io/angels-chess-official/melekler-satranci.html">TR</a>
+    <a href="https://angelschess.github.io/angels-chess-official/tenshi-no-chesu.html">日本語</a>
+    <a href="https://angelschess.github.io/angels-chess-official/shachmat-hamalachim.html">עב</a>
+    <a href="https://angelschess.github.io/angels-chess-official/shatranj-malaika.html">عر</a>
+    <a href="https://angelschess.github.io/angels-chess-official/senterej.html">አማ</a>
+  </div>
+
+<nav aria-label="Page sections">
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:4px 0 10px;">
+      <a href="#about">Om Engle Sjakk</a>
+      <a href="#board">Brett</a>
+      <a href="#pieces">Engelbrikker</a>
+      <a href="#legal">Juridisk</a>
+      <a href="#research">Forskning</a>
+      <a href="#qr">QR-tilgang</a>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:0 0 6px;">
+      <a href="#" class="nav-soon">Kjøp Regler og Lover for Spillet</a>
+      <a href="#" class="nav-soon">Last ned Algoritmisk Regelsett</a>
+    </div>
+    <p style="text-align:center; font-size:12px; color:#999; margin:4px 0 0; font-style:italic; letter-spacing:0.5px;">Kommer snart — under utvikling</p>
+  </nav>
+
+  <header id="top">
+    <p class="welcome">Velkommen</p>
+    <h1>Engle Sjakk</h1>
+    <p class="tagline">En sjakkvariant designet for menneske–KI-samarbeidsalderen.</p>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/Gemini_Generated_Image_guthxtguthxtguth.png" alt=""></figure>
+    <div class="challenge">
+      <strong>Utfordringen</strong>
+      <p>Sjakk er et endelig, beregnbart spill — teoretisk løsbart, men ennå ikke løst. KI-motorer har samlet så mye kunnskap at menneskelig intuisjon, kreativitet og erfaring ikke lenger utgjør en meningsfull fordel.</p>
+      <p>Engle Sjakk ble designet som svar på denne nye virkeligheten. Den betingede aktiveringsmekanismen introduserer strukturell usikkerhet som ingen motor kan forutse fullt ut.</p>
+    </div>
+    <div class="objective">
+      <strong>Målet</strong>
+      <p>Å gjenopprette rettferdig og balansert konkurranse mellom menneske og maskin. Engle Sjakk introduserer en ny logisk dimensjon — ikke flere brikker, ikke et større brett, men en ny type betinget kausalitet.</p>
+      <p>Varianten muliggjør også en ny form for samarbeid: menneske og KI kan utforske et rom der ingen har en akkumulert fordel.</p>
+    </div>
+    
+  </header>
+    
+  <section id="about">
+    <h2>Om Engle Sjakk</h2>
+    <p class="lead">Engle Sjakk oppsto fra et enkelt spørsmål: kan sjakk fortsette å utvikle seg i en tid der kunstig intelligens har overgått menneskelige spillere?</p>
+    <p>I århundrer har sjakk representert en av menneskehetens største intellektuelle prestasjoner. I dag stoler elitekonkurransen i økende grad på KI-assistert forberedelse.</p><p>Engle Sjakk ble unnfanget som svar. Det bevarer de kjente grunnlagene for tradisjonelt sjakk og introduserer et helt nytt strategisk miljø: 68-felts brett, fire Engelsvinge-felter, to Engler per spiller og en unik betinget aktiveringsmekanisme.</p><p>I motsetning til alle tradisjonelle brikker har ikke en Engel de samme evnene gjennom hele spillet. Den begynner inaktiv og blir fullt operativ først når motstanderen krysser territorialgrensen.</p>
+    <p>Engle Sjakk introduserer et nytt konsept: <strong>tilstandsavhengige brikker</strong>. En Engels evner avhenger av posisjonens utviklingshistorie, ikke bare geometri.</p><p>Målet er ikke å gjøre sjakk tilfeldig. Målet er å belønne kreativitet fremfor memorering.</p><p>Engle Sjakk er også en interessant forskningsplattform for KI, uten å stole på århundrer av eksisterende åpningsteori.</p>
+    <p><em>Hvert spill begynner som uutforsket territorium. Hver posisjon inviterer nye ideer. Hver invasjon bærer konsekvenser.</em></p>
+  </section>
+  <section id="board">
+    <h2>Det offisielle brettet</h2>
+    <div class="img-row">
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image7.png" alt=""><figcaption>Det offisielle 68-felts brettet med fire laterale Engelsvinge-utvidelser.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image15.png" alt=""><figcaption>Offisielt koordinatsystem: filer a–h og laterale felt x4, x5, y4 og y5.</figcaption></figure>
+    </div>
+    <p>Filrekkefølge fra Hvits venstre: <strong>X, a, b, c, d, e, f, g, h, Y</strong>. Engelen forkortes <strong>G</strong>.</p>
+    <div class="legal-box"><strong>Registrert EU-industridesign:</strong> 68-felts brett — EUIPO nr. <strong>015110333-0001</strong></div>
+  
+    <p>Vi tok det klassiske 8×8-sjakkbrettet og spurte: hva om det fantes fire ekstra felt — to på hver side, nøyaktig der Englene begynner? Resultatet er et brett med 68 felt. Det sentrale rutenettet fungerer nøyaktig som i klassisk sjakk. De fire nye feltene — x4, x5, y4 og y5 — kalles Engelsvingene. De er ekte felt: hvilken som helst brikke kan gå inn, blokkere eller ta på dem.</p>
+    <p>Vi skapte også en grense. Rekke 4 og 5 utgjør Grensen — linjen som skiller de to territoriene. Når en motstanderbrikke krysser din Grense, våkner dine Engler. Det er hjerte av spillet.</p>
+  
+    </section>
+  <section id="pieces">
+    <h2>Engelbrikkene</h2>
+    <p class="lead">Hver spiller begynner med 18 brikker: 16 tradisjonelle pluss 2 Engler.</p>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/image2.png" alt=""><figcaption>Den hvite Engelen og den svarte Engelen — tofarget, bonde-inspirert design.</figcaption></figure>
+    <div class="pieces-grid">
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image16.png" alt=""><figcaption>Hvit Engel — forfra.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image17.png" alt=""><figcaption>Svart Engel — forfra.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image18.png" alt=""><figcaption>Hvit Engel — perspektiv.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image19.png" alt=""><figcaption>Svart Engel — perspektiv.</figcaption></figure>
+    </div>
+    <div class="legal-box"><strong>Registrerte EU-industridesign:</strong><br>Svart Engel — EUIPO nr. <strong>015111340-0001</strong><br>Hvit Engel — EUIPO nr. <strong>015111340-0002</strong></div>
+  
+    <p>Vi designet en brikke som ikke angriper først. Engelen starter i dvale — den opptar sitt felt, blokkerer linjer, men kan ikke bevege seg eller kontrollere. Den venter. Dette er ikke en svakhet. Det er en designbeslutning: en brikke hvis kraft avhenger fullstendig av hva motstanderen velger å gjøre.</p>
+    <p>Når motstanderen krysser Grensen, aktiveres Engelen. Fra det øyeblikket beveger den seg nøyaktig 3 felt i en rett linje — horisontalt, vertikalt eller diagonalt — så lenge begge mellomliggende felt er ledige. Den kan ikke ta tradisjonelle brikker. Den kontrollerer feltet den kan nå, selv om det er okkupert. Hvis kongen står på et kontrollert felt, er det sjakk.</p>
+    <p>Dette skaper det vi kaller den <strong>uventede noden</strong>: et øyeblikk i spilltreet der et trekk som virket rent offensivt — å krysse Grensen — plutselig genererer nye defensive muligheter for motstanderen. Posisjonen forgrener seg på en måte som ingen motor trent på klassisk sjakk kan forutse fullt ut. Invasjonen utløser noe som ikke eksisterte før.</p>
+    <p>Én regel til: før spillet begynner, flytter Svart en Engel 3 felt mot sentrum. Dette er den foreløpige åpningen — obligatorisk, enkel, og den aktiverer ingenting. Det er Svarts måte å balansere Hvits førstetrekksfordel på.</p>
+    <p><em>Hvis du elsker sjakk, ble dette spillet laget for deg. Brettet vil føles kjent. Reglene er få. Men i det øyeblikket en Engel aktiveres — og territoriet skifter — vil du forstå hvorfor vi bygde det. Kom og spill.</em></p>
+  </section>
+
+  <section id="why-angels" style="padding:38px 0; border-top:1px solid #ccc;">
+    <h2>Hvorfor Engle Sjakk?</h2>
+    <p class="lead"><em>Fra spilldesign og beregningsteori</em></p>
+
+    <h3>1. Slutten på akkumulert åpningsteori</h3>
+    <p>Moderne sjakk har blitt dypt teoretisert av datamaskiner. Stockfish, Leela Chess Zero og AlphaZero har analysert millioner av partier og generert åpningskunnskap som strekker seg til trekk 30 og lenger. En brikke som genererer uventede noder gjør denne akkumulerte kunnskapen ubrukelig fra trekk 1, og tvinger begge spillerne — menneske og maskin — til å resonere fra grunnleggende strategiske prinsipper.</p>
+
+    <h3>2. Sammenbruddet av tradisjonelle sjakkprogrammer</h3>
+    <p>Motorer basert på alfa-beta-beskjæring møter en kombinatorisk eksplosjon med Engelen. Men problemet er ikke bare skala: søketreet slutter å være statisk. Verdien av hver node avhenger av en variabel ekstern til brettet — aktiveringstilstanden til Englene — som ikke eksisterte i klassisk sjakk. Spillet belønner menneskelig intuisjon og psykologisk fleksibilitet over dyp, stiv beregning.</p>
+
+    <h3>3. Strukturell usikkerhet: den permanente Plan B</h3>
+    <p>Klassisk sjakk er en perfekt abstrakt krig: all informasjon er synlig, ingen tilfeldighet, ingen tåke. Engelen introduserer tåke på en strukturell, ikke tilfeldig måte. Hvert territorielt fremrykk aktiverer ressurser som ikke eksisterte tidligere. Den invaderende spilleren vet hva de gjør — men kan ikke beregne nøyaktig hvilken posisjon som vil oppstå av den aktiveringen i fremtiden. Plan B slutter å være et alternativ og blir en permanent strategisk nødvendighet.</p>
+
+    <h3>4. Asymmetrisk informasjon og utsatt kausalitet</h3>
+    <p>I klassisk sjakk er all informasjon til enhver tid på brettet — det er et spill med perfekt informasjon. Engelen introduserer noe kvalitativt nytt: en variabel hvis endringstidspunkt avhenger av en fremtidig beslutning fra motstanderen. Dette er ikke tilfeldig usikkerhet. Det er strategisk usikkerhet. Dette har aldri forekommet i sjakkhistorien.</p>
+
+    <div style="border-left:4px solid #000; padding:16px 22px; background:#f7f7f7; margin-top:32px;">
+      <h3 style="margin-top:0;">En melding fra fremtiden</h3>
+      <p><em>Engle Sjakk ble ikke til for å konkurrere med klassisk sjakk. Det ble til for å forlenge det.</em></p>
+      <p>Da AlphaZero i 2017 demonstrerte at et system som kan lære fra bunnen av — uten forhåndskunnskap, uten åpningsteori, uten databaser — kunne overgå Stockfish på noen timer, bevitnet verden noe som transcenderte sjakk: beviset på at ren læring kan overgå akkumulert kunnskap.</p>
+      <p>Engle Sjakk bringer den samme logikken til det fysiske brettet. Hvert spill begynner fra null. Ingen motor akkumulerer fordel. Ingen database hjelper. Spilleren som kan lese aktiveringens øyeblikk — som forstår når man skal invadere og når man skal vente — har en fordel ingen algoritme kan kjøpe med beregningstid.</p>
+      <p><em>Dette er fremtidens brett: ikke større, ikke raskere, men strukturelt mer ærlig. Et brett der menneskelig intelligens og kunstig intelligens kan sitte ansikt til ansikt, uten at noen av dem ankommer med svaret allerede forberedt. Spillet som venter på dem begge.</em></p>
+    </div>
+  </section>
+  <section id="heritage" style="padding:38px 0; border-top:1px solid #ccc;">
+    <h2>Et Spill som Tilhører Alle</h2>
+    <p class="lead" style="margin-bottom:28px;">Engle Sjakk ble bygget på skuldrene til et spill som har formet sivilisasjoner. Hvert språk på dette nettstedet bærer en historie.</p>
+    <div style="border-left: 4px solid #000; padding:20px 24px; background:#f9f9f9;">
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">RU — Russisk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Der sjakkbrettet er en filosofisk slagmark og vuggen til en evig dynastiet av intellektuelle titanér.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">EN — Engelsk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Språket som universaliserte spillet, preget av Bobby Fischers forstyrrende og ensomme geni.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">NO — Norsk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Speilet av den moderne æra, der Magnus Carlsens intuisjon og absolutte kulde omdefinerte menneskelige grenser.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">ES — Spansk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Tidløs eleganse og poesi over brettet, fra Capablancas naturlige geni til den nye generasjonen som omformer iberisk sjakk.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">中文 — Kinesisk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Tusenårig tålmodighet og kollektiv disiplin rettet mot dagens elites absolutte dominans.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">VI — Vietnamesisk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Den vibrerende energien og taktiske skarpheten til en ny makt som transformerer Sørøst-Asia.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">ՀՅ — Armenisk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">En nasjon der sjakk ikke er en hobby, men en form for nasjonal identitet og intellektuell overlevelse.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">FR — Fransk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Klassisk tradisjon og strategisk raffinement som formet vestlig sjakktenkning.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">IS — Islandsk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Geografisk isolasjon omgjort til mystikk, evig vitne til det legendariske geopolitiske sammenstøtet i 1972.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">TR — Tyrkisk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Den stille såingen av nye generasjoner som bygger fremtidens brett.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">日本語 — Japansk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Den teknologiske broen mellom tusenårig østlig taktisk tradisjon og global sjakk.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">עב — Hebraisk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Analytisk skarphet og den konstante jakten på taktisk perfeksjon gjennom generasjoner.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">عر — Arabisk</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Den forfedres ekko av Shatranj, den mytiske roten der alt begynte for over tusen år siden.</p>
+      </div>
+    </div>
+  </section>
+  <section id="qr">
+    <div class="qr-section">
+      <img class="qr-img" src="https://angelschess.github.io/angels-chess-official/qrcode-angel-chess.png" alt="">
+      <div><a class="url" href="https://angelschess.github.io/angels-chess-official/">angelschess.github.io/angels-chess-official/</a></div>
+    </div>
+  </section>
+  <section id="legal">
+    <h2>Juridiske og registreringsreferanser</h2>
+    <div class="legal-grid">
+      <div class="legal-item">68-felts brett<strong>EUIPO 015110333-0001</strong></div>
+      <div class="legal-item">Svart Engel<strong>EUIPO 015111340-0001</strong></div>
+      <div class="legal-item">Hvit Engel<strong>EUIPO 015111340-0002</strong></div>
+    </div>
+    <div class="legal-box" style="margin-top:16px;">
+      <strong>Opphavsrett:</strong> © 2025–2026 Nuño Alberto Valenzuela Alonso. Alle rettigheter forbeholdt.<br><strong>Safe Creative:</strong> Registrert.<br><br>
+      <strong>Repository:</strong> <a href="https://github.com/AngelsChess/angels-chess-official">github.com/AngelsChess/angels-chess-official</a><br><strong>EUIPO-verifisering:</strong> euipo.europa.eu/eSearch · nr. 015110333-0001
+    </div>
+    <div class="legal-box" style="margin-top:14px; border-left-color:#555;">
+      <strong>Pågående arbeid:</strong><br>· Algoritmisk formalisering av regler (State-Space Modeling).<br>· <strong>Kommende publikasjon:</strong> Regler og lover for spillet (Komplett utgave).<br>· Oversettelse til matematisk modell pågår.
+    </div>
+  </section>
+  <footer><strong>Engle Sjakk</strong> · © 2025–2026 Nuño Alberto Valenzuela Alonso.</footer>
+
+</main>
+</body>
+</html>
