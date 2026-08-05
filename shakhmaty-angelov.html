@@ -1,1 +1,258 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шахматы Ангелов | Официальный справочник</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #fff;
+      color: #000;
+      font-family: Baskerville, "Libre Baskerville", Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.75;
+    }
+    .page { width: min(860px, calc(100% - 28px)); margin: 0 auto; }
+    .lang-bar { display: flex; justify-content: flex-end; align-items: center; gap: 6px; padding: 10px 0 8px; font-size: 14px; border-bottom: 1px solid #e0e0e0; }
+    .lang-bar span { color: #888; margin-right: 4px; }
+    .lang-bar a { color: #000; text-decoration: none; border: 1px solid #ccc; padding: 3px 10px; border-radius: 2px; font-size: 13px; }
+    .lang-bar a:hover { background: #000; color: #fff; border-color: #000; }
+    .lang-bar a.active { background: #000; color: #fff; border-color: #000; font-weight: bold; }
+    header { text-align: center; padding: 44px 0 24px; border-bottom: 2px solid #000; }
+    .welcome { margin: 0 0 6px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #777; }
+    h1 { margin: 0 0 8px; font-size: clamp(36px, 7vw, 68px); line-height: 1; }
+    .tagline { margin: 0 auto 20px; max-width: 680px; font-size: clamp(16px, 2.2vw, 20px); font-style: italic; color: #333; }
+    .turing { margin: 0 auto 24px; font-size: clamp(18px, 2.8vw, 26px); font-style: italic; }
+    .challenge, .objective { margin: 0 auto 22px; max-width: 720px; border-left: 4px solid #000; padding: 16px 22px; background: #f7f7f7; text-align: left; }
+    .objective { border-left-color: #555; background: #f0f0f0; }
+    .challenge strong, .objective strong { display: block; margin-bottom: 8px; font-size: 16px; }
+    .challenge p, .objective p { margin: 0 0 8px; font-size: 15px; color: #333; line-height: 1.7; }
+    .challenge p:last-child, .objective p:last-child { margin: 0; }
+    figure { margin: 0 auto 32px; text-align: center; max-width: 720px; }
+    figure img { display: block; width: 100%; max-height: 560px; object-fit: contain; margin: 0 auto; }
+    figcaption { margin: 10px auto 0; font-size: 13px; font-style: italic; color: #666; max-width: 600px; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 36px; }
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    section { padding: 38px 0; border-top: 1px solid #ccc; }
+    h2 { margin: 0 0 18px; font-size: clamp(24px, 4vw, 36px); }
+    h3 { margin: 0 0 10px; font-size: 20px; }
+    p { margin: 0 0 14px; color: #222; font-size: 17px; }
+    .lead { font-size: 18px; color: #111; }
+    .img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+    .img-row figure { margin: 0; }
+    .img-row img { width: 100%; max-height: 340px; object-fit: contain; }
+    .pieces-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 20px 0; }
+    .pieces-grid figure { margin: 0; text-align: center; }
+    .pieces-grid img { width: 100%; max-height: 260px; object-fit: contain; }
+    .pieces-grid figcaption { font-size: 13px; font-style: italic; color: #666; margin-top: 6px; }
+    .legal-box { padding: 16px 20px; border: 1px solid #000; border-left: 5px solid #000; font-size: 15px; background: #f9f9f9; margin-top: 16px; line-height: 1.8; }
+    .legal-box strong { color: #000; }
+    .legal-box a { color: #000; }
+    .legal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+    .legal-item { border: 1px solid #000; padding: 16px; font-size: 14px; }
+    .legal-item strong { display: block; margin-top: 4px; overflow-wrap: anywhere; font-size: 15px; }
+    .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+    .card { border: 1px solid #ccc; padding: 18px; }
+    .card h3 { font-size: 16px; margin-bottom: 8px; }
+    .card p { font-size: 15px; margin: 0; color: #444; }
+    .qr-section { text-align: center; border: 2px solid #000; padding: 32px 28px; margin: 32px 0; }
+    .qr-section h2 { margin-bottom: 10px; }
+    .qr-section p { font-size: 16px; color: #333; }
+    .qr-img { display: block; width: 150px; height: 150px; margin: 18px auto; image-rendering: pixelated; }
+    .url { display: inline-block; border: 1px solid #000; padding: 9px 16px; margin-top: 10px; font-size: 14px; overflow-wrap: anywhere; color: #000; text-decoration: none; }
+    .url:hover { background: #000; color: #fff; }
+    footer { border-top: 1px solid #000; text-align: center; padding: 26px 0 38px; font-size: 14px; color: #555; }
+    @media (max-width: 640px) {
+      .img-row, .pieces-grid, .legal-grid, .card-grid { grid-template-columns: 1fr; }
+      .lang-bar { justify-content: center; }
+    }
+</style>
+</head>
+<body>
+<main class="page">
+
+      <div class="lang-bar">
+    <span>🌐</span>
+    <a href="https://angelschess.github.io/angels-chess-official/shakhmaty-angelov.html" class="active">RU</a>
+    <a href="https://angelschess.github.io/angels-chess-official/en/index.html">EN</a>
+    <a href="https://angelschess.github.io/angels-chess-official/engle-sjakk.html">NO</a>
+    <a href="https://angelschess.github.io/angels-chess-official/ajedrez-de-los-angeles.html">ES</a>
+    <a href="https://angelschess.github.io/angels-chess-official/zh/index.html">中文</a>
+    <a href="https://angelschess.github.io/angels-chess-official/co-vua-thien-than.html">VI</a>
+    <a href="https://angelschess.github.io/angels-chess-official/hreshtakneri-shakhmat.html">ՀՅ</a>
+    <a href="https://angelschess.github.io/angels-chess-official/echecs-des-anges.html">FR</a>
+    <a href="https://angelschess.github.io/angels-chess-official/engla-skak.html">IS</a>
+    <a href="https://angelschess.github.io/angels-chess-official/melekler-satranci.html">TR</a>
+    <a href="https://angelschess.github.io/angels-chess-official/tenshi-no-chesu.html">日本語</a>
+    <a href="https://angelschess.github.io/angels-chess-official/shachmat-hamalachim.html">עב</a>
+    <a href="https://angelschess.github.io/angels-chess-official/shatranj-malaika.html">عر</a>
+  </div>
+
+  <header id="top">
+    <p class="welcome">Добро пожаловать</p>
+    <h1>Шахматы Ангелов</h1>
+    <p class="tagline">Шахматный вариант, разработанный для эпохи сотрудничества человека и искусственного интеллекта.</p>
+    <p class="turing">Могут ли машины мыслить? Если нет — что делает их такими сложными для победы?</p>
+    <div class="challenge">
+      <strong>Вызов</strong>
+      <p>Шахматы — конечная, вычислимая игра, теоретически разрешимая, но ещё не решённая. Однако произошло нечто более опасное: шахматные движки ИИ накопили столько знаний, что человеческая интуиция, творчество и опыт больше не дают реального преимущества.</p>
+      <p>Шахматы Ангелов были созданы в ответ на этот вызов. Механика условной активации вводит структурную неопределённость, которую ни один движок не может полностью предвидеть — потому что она зависит от решений самого противника.</p>
+    </div>
+    <div class="objective">
+      <strong>Цель</strong>
+      <p>Восстановить справедливое и равноправное соревнование между человеком и машиной. Шахматы Ангелов вводят новое логическое измерение — не больше фигур, не большую доску, а новый тип обусловленной причинности — позволяя человеческой интуиции и творчеству конкурировать с ИИ на равных.</p>
+      <p>Вариант также открывает новую форму сотрудничества: человек и ИИ могут совместно исследовать пространство, где ни у кого нет накопленного преимущества.</p>
+    </div>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/Gemini_Generated_Image_guthxtguthxtguth.png" alt="Аллегорическая иллюстрация"><figcaption>Официальная аллегорическая иллюстрация, представляющая стратегию, творчество и символическую роль Ангела.</figcaption></figure>
+  </header>
+  <nav>
+    <a href="#about">О проекте</a><a href="#board">Доска</a><a href="#pieces">Фигуры Ангелов</a>
+    <a href="#legal">Правовая информация</a><a href="#research">Исследования</a><a href="#qr">QR-доступ</a>
+  </nav>
+    <section id="about">
+    <h2>О Шахматах Ангелов</h2>
+    <p class="lead">Шахматы Ангелов возникли из простого вопроса: может ли шахматная игра продолжать развиваться в эпоху, когда искусственный интеллект превзошёл лучших игроков мира?</p>
+    <p>На протяжении столетий шахматы олицетворяли одно из величайших интеллектуальных достижений человечества — сочетая математический расчёт, логическое мышление, творчество, интуицию и долгосрочное стратегическое видение в рамках изящной системы правил. Сегодня, однако, элитная соревновательная игра всё больше опирается на подготовку с помощью искусственного интеллекта. Современные движки анализируют миллионы позиций в секунду, используя десятилетия накопленной теории дебютов и компьютерных баз данных.</p>
+    <p>Шахматы Ангелов были задуманы как ответ на эту новую реальность. Не заменяя классические шахматы, они стремятся расширить их. Игра сохраняет привычные основы традиционных шахмат и вводит принципиально новую стратегическую среду: доску из 68 клеток, четыре поля Крыльев Ангела, двух Ангелов на каждую сторону и уникальный механизм условной активации.</p>
+    <p>В отличие от всех традиционных фигур, Ангел не обладает одинаковыми возможностями на протяжении всей партии. Он начинает неактивным и становится полностью дееспособным лишь тогда, когда противник пересекает территориальную границу. Стратегическое решение одного игрока навсегда меняет возможности другого. Это простое правило преобразует дерево решений игры.</p>
+    <p>В классических шахматах каждая фигура имеет фиксированный набор ходов от начала до конца партии. Шахматы Ангелов вводят новое понятие: <strong>фигуры, зависящие от состояния</strong>. Возможности Ангела определяются историей развития позиции, а не только геометрией. Каждое территориальное продвижение следует оценивать не только по приобретённому пространству, но и по стратегическим возможностям, которые оно открывает противнику.</p>
+    <p>Цель не в том, чтобы сделать шахматы случайными. Цель — вознаградить творчество вместо меморизации, стратегическую адаптацию вместо повторения, оригинальное мышление вместо накопленных баз данных.</p>
+    <p>По этой причине Шахматы Ангелов также являются интересной исследовательской платформой для искусственного интеллекта. Вариант предоставляет новую среду для изучения алгоритмов поиска, функций оценки, обучения с подкреплением и сотрудничества человека с ИИ — без опоры на столетия существующей теории дебютов.</p>
+    <p><em>Каждая партия начинается как неизведанная территория. Каждая позиция открывает новые идеи. Каждое вторжение несёт последствия.</em></p>
+  </section>
+  <section id="board">
+    <h2>Официальная доска</h2>
+    <div class="img-row">
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image7.png" alt="Доска 68 клеток"><figcaption>Официальная доска из 68 клеток с четырьмя боковыми расширениями «Крылья Ангела».</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image15.png" alt="Система координат"><figcaption>Официальная система координат: вертикали a–h и боковые клетки x4, x5, y4, y5.</figcaption></figure>
+    </div>
+    <p>Порядок вертикалей слева от белых: <strong>X, a, b, c, d, e, f, g, h, Y</strong>. Ангел обозначается буквой <strong>G</strong>.</p>
+    <div class="legal-box"><strong>Зарегистрированный промышленный образец ЕС:</strong> Доска 68 клеток — EUIPO № <strong>015110333-0001</strong></div>
+  
+    <p>Мы взяли классическую шахматную доску 8×8 и задали вопрос: а что если бы существовало ещё четыре клетки — по две с каждой стороны, именно там, где начинают Ангелы? Результатом стала доска из 68 клеток. Центральная сетка работает точно так же, как в классических шахматах. Четыре новые клетки — x4, x5, y4 и y5 — называются Крыльями Ангела. Это настоящие клетки: любая фигура может войти, заблокировать или захватить на них.</p>
+    <p>Мы также создали границу. Ряды 4 и 5 образуют Фронтир — линию, разделяющую два территории. Когда фигура противника пересекает ваш Фронтир, ваши Ангелы пробуждаются. Это и есть суть игры.</p>
+  
+    <p>Мы создали фигуру, которая не атакует первой. Ангел начинает «спящим» — занимает свою клетку, блокирует линии, но не может двигаться или контролировать. Он ждёт.</p>
+    <p>Когда противник пересекает Фронтир, Ангел активируется. С этого момента он движется ровно на 3 клетки по прямой — горизонтально, вертикально или диагонально — при условии, что обе промежуточные клетки свободны. Он не может брать традиционные фигуры. Он контролирует клетку, до которой может добраться, даже если она занята. Если король стоит на контролируемой клетке — это шах.</p>
+    <p>Ещё одно правило: до начала партии Чёрные перемещают одного Ангела на 3 клетки к центру. Это предварительный дебют — обязательный, простой, и он ничего не активирует. Это способ Чёрных уравновесить преимущество первого хода Белых.</p>
+  </section>
+  <section id="pieces">
+    <h2>Фигуры Ангелов</h2>
+    <p class="lead">Каждый игрок начинает с 18 фигурами: 16 традиционных и 2 Ангела.</p>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/image2.png" alt="Белый и чёрный Ангел"><figcaption>Белый Ангел и Чёрный Ангел — двухцветный дизайн, вдохновлённый пешкой.</figcaption></figure>
+    <div class="pieces-grid">
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image16.png" alt="Белый Ангел спереди"><figcaption>Белый Ангел — вид спереди.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image17.png" alt="Белый Ангел в перспективе"><figcaption>Белый Ангел — перспектива.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image18.png" alt="Чёрный Ангел спереди"><figcaption>Чёрный Ангел — вид спереди.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image19.png" alt="Чёрный Ангел в перспективе"><figcaption>Чёрный Ангел — перспектива.</figcaption></figure>
+    </div>
+    <div class="legal-box"><strong>Зарегистрированные промышленные образцы ЕС:</strong><br>Чёрный Ангел — EUIPO № <strong>015111340-0001</strong><br>Белый Ангел — EUIPO № <strong>015111340-0002</strong></div>
+  
+    <p>Мы создали фигуру, которая не атакует первой. Ангел начинает «спящим» — занимает свою клетку, блокирует линии, но не может двигаться или контролировать. Он ждёт.</p>
+    <p>Когда противник пересекает Фронтир, Ангел активируется. С этого момента он движется ровно на 3 клетки по прямой — горизонтально, вертикально или диагонально — при условии, что обе промежуточные клетки свободны. Он не может брать традиционные фигуры. Он контролирует клетку, до которой может добраться, даже если она занята. Если король стоит на контролируемой клетке — это шах.</p>
+    <p>Ещё одно правило: до начала партии Чёрные перемещают одного Ангела на 3 клетки к центру. Это предварительный дебют — обязательный, простой, и он ничего не активирует. Это способ Чёрных уравновесить преимущество первого хода Белых.</p>
+  </section>
+  
+    
+  <section style="padding:20px 0 10px; border-top: none;">
+    <p><em>Если вы любите шахматы, эта игра создана для вас. Доска покажется знакомой. Правил немного. Но в тот момент, когда Ангел активируется — и территория смещается — вы поймёте, зачем мы её создали. Приходите и играйте.</em></p>
+  </section>
+  <section id="heritage" style="padding:38px 0; border-top:1px solid #ccc;">
+    <h2>Игра, которая принадлежит всем</h2>
+    <p class="lead" style="margin-bottom:28px;">Шахматы Ангелов созданы на плечах игры, формировавшей цивилизации. Каждый язык этого сайта несёт в себе историю.</p>
+    <div style="border-left: 4px solid #000; padding:20px 24px; background:#f9f9f9;">
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">RU — Русский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Где шахматная доска — философское поле битвы и колыбель непрерывной династии интеллектуальных титанов.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">EN — Английский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Язык, универсализировавший игру, отмеченный разрушительным и одиноким гением Бобби Фишера.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">NO — Норвежский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Зеркало современной эпохи, где интуиция и абсолютная холодность Магнуса Карлсена переопределили человеческие пределы.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">ES — Испанский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Вечная элегантность и поэзия над доской, от природного гения Капабланки до новых поколений, преобразующих шахматы.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">中文 — Китайский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Тысячелетнее терпение и коллективная дисциплина, направленные к абсолютному господству нынешней элиты.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">VI — Вьетнамский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Живая энергия и тактическая острота новой силы, преобразующей Юго-Восточную Азию.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">ՀՅ — Армянский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Нация, где шахматы — не развлечение, а форма национальной идентичности и интеллектуального выживания.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">FR — Французский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Классическая традиция и стратегическое совершенство, сформировавшие западную шахматную мысль.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">IS — Исландский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Географическая изоляция, превращённая в мистицизм, вечный свидетель легендарного геополитического поединка 1972 года.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">TR — Турецкий</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Тихий посев новых поколений, строящих будущее доски.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">日本語 — Японский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Технологический мост между тысячелетней восточной тактической традицией и мировыми шахматами.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">עב — Иврит</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Аналитическая остроту и неустанное стремление к тактическому совершенству сквозь поколения.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">عر — Арабский</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Прародительское эхо Шатранджа, мифического корня, где всё началось более тысячи лет назад.</p>
+      </div>
+    </div>
+  </section>
+  <section id="qr">
+    <div class="qr-section">
+      
+      
+      <img class="qr-img" src="https://angelschess.github.io/angels-chess-official/qrcode-angel-chess.png" alt="">
+      <div><a class="url" href="https://angelschess.github.io/angels-chess-official/">angelschess.github.io/angels-chess-official/</a></div>
+    </div>
+  </section>
+
+  <section id="closing">
+    <h2>Правовые и регистрационные сведения</h2>
+    <div class="legal-grid">
+      <div class="legal-item">Доска 68 клеток<strong>EUIPO 015110333-0001</strong></div>
+      <div class="legal-item">Чёрный Ангел<strong>EUIPO 015111340-0001</strong></div>
+      <div class="legal-item">Белый Ангел<strong>EUIPO 015111340-0002</strong></div>
+    </div>
+    <div class="legal-box" style="margin-top:16px;">
+      <strong>Авторское право:</strong> © 2025–2026 Nuño Alberto Valenzuela Alonso. Все права защищены.<br>
+      Воспроизведение без письменного разрешения запрещено.<br>
+      <strong>Safe Creative:</strong> Зарегистрировано.<br><br>
+      <strong>Репозиторий:</strong> <a href="https://github.com/AngelsChess/angels-chess-official">github.com/AngelsChess/angels-chess-official</a><br>
+      <strong>Проверка EUIPO:</strong> euipo.europa.eu/eSearch · № 015110333-0001
+    </div>
+    <div class="legal-box" style="margin-top:14px; border-left-color:#555;">
+      <strong>В разработке:</strong><br>
+      · Алгоритмическая формализация правил (моделирование пространства состояний). Код движка симуляции будет опубликован на этой платформе.<br>
+      · <strong>Предстоящая публикация:</strong> Правила и законы игры (полное издание).<br>
+      · Перевод в математическую и вычислимую модель данных; код будет открыт публично.
+    </div>
+  </section>
+  <footer><strong>Шахматы Ангелов</strong> · © 2025–2026 Nuño Alberto Valenzuela Alonso. Все права защищены.</footer>
+
+
+</main>
+</body>
+</html>
