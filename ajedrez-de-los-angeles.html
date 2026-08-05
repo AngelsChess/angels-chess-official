@@ -71,7 +71,12 @@
       .img-row, .pieces-grid, .legal-grid, .card-grid { grid-template-columns: 1fr; }
       .lang-bar { justify-content: center; }
     }
-</style>
+
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    .nav-soon { color: #000 !important; text-decoration: none !important; background: #f2f2f2 !important; border: 1px solid #ddd !important; padding: 7px 16px; font-size: 14px; cursor: default !important; font-style: italic; }
+
+    </style>
 </head>
 <body>
 <main class="page">
@@ -79,7 +84,7 @@
       <div class="lang-bar">
     <span>🌐</span>
     <a href="https://angelschess.github.io/angels-chess-official/shakhmaty-angelov.html">RU</a>
-    <a href="https://angelschess.github.io/angels-chess-official/en/index.html">EN</a>
+    <a href="https://angelschess.github.io/angels-chess-official/">EN</a>
     <a href="https://angelschess.github.io/angels-chess-official/engle-sjakk.html">NO</a>
     <a href="https://angelschess.github.io/angels-chess-official/ajedrez-de-los-angeles.html" class="active">ES</a>
     <a href="https://angelschess.github.io/angels-chess-official/zh/index.html">中文</a>
@@ -110,9 +115,20 @@
     </div>
     <figure><img src="https://angelschess.github.io/angels-chess-official/Gemini_Generated_Image_guthxtguthxtguth.png" alt="Ilustración alegórica"><figcaption>Ilustración alegórica oficial que representa la estrategia, la creatividad y el papel simbólico del Ángel.</figcaption></figure>
   </header>
-  <nav>
-    <a href="#about">La obra</a><a href="#board">Tablero</a><a href="#pieces">Piezas Ángel</a>
-    <a href="#legal">Legal</a><a href="#research">Investigación</a><a href="#qr">Acceso QR</a>
+    <nav aria-label="Page sections">
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:4px 0 10px;">
+      <a href="#about">Sobre el Ajedrez de los Ángeles</a>
+      <a href="#board">Tablero</a>
+      <a href="#pieces">Piezas Ángel</a>
+      <a href="#legal">Legal</a>
+      <a href="#research">Investigación</a>
+      <a href="#qr">Acceso QR</a>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:0 0 6px;">
+      <a href="#" class="nav-soon">Comprar Reglas y Leyes del Juego</a>
+      <a href="#" class="nav-soon">Descargar Conjunto de Reglas Algorítmico</a>
+    </div>
+    <p style="text-align:center; font-size:12px; color:#999; margin:4px 0 0; font-style:italic; letter-spacing:0.5px;">Próximamente — en desarrollo</p>
   </nav>
     <section id="about">
     <h2>Sobre el Ajedrez de los Ángeles</h2>
@@ -137,10 +153,7 @@
     <p>Tomamos el tablero clásico de 8×8 y nos preguntamos: ¿y si existieran cuatro escaques más — dos a cada lado, exactamente donde comienzan los Ángeles? El resultado es un tablero de 68 escaques. La cuadrícula central funciona exactamente igual que en el ajedrez clásico. Los cuatro nuevos escaques — x4, x5, y4 e y5 — se llaman Alas de Ángel. Son escaques reales: cualquier pieza puede entrar, bloquear o capturar en ellos.</p>
     <p>También creamos una frontera. Las filas 4 y 5 forman la Frontera — la línea que separa los dos territorios. Cuando una pieza adversaria cruza tu Frontera, tus Ángeles despiertan. Ese es el corazón del juego.</p>
   
-    <p>Diseñamos una pieza que no ataca primero. El Ángel empieza dormido — ocupa su escaque, bloquea líneas, pero no puede moverse ni controlar. Espera.</p>
-    <p>Cuando el adversario cruza la Frontera, el Ángel se activa. A partir de ese momento se mueve exactamente 3 escaques en línea recta — horizontal, vertical o diagonal — siempre que los dos escaques intermedios estén libres. No puede capturar piezas tradicionales. Controla el escaque al que puede llegar, aunque esté ocupado. Si el rey está en un escaque controlado, está en jaque.</p>
-    <p>Una regla más: antes de que comience la partida, las negras mueven un Ángel 3 escaques hacia el centro. Esta es la apertura preliminar — obligatoria, sencilla, y no activa nada. Es la forma que tienen las negras de equilibrar la ventaja del primer movimiento de las blancas.</p>
-  </section>
+    </section>
   <section id="pieces">
     <h2>Las piezas Ángel</h2>
     <p class="lead">Cada jugador comienza con 18 piezas: 16 tradicionales más 2 Ángeles.</p>
@@ -153,13 +166,10 @@
     </div>
     <div class="legal-box"><strong>Diseños industriales registrados ante la EUIPO:</strong><br>Ángel negro — n.º <strong>015111340-0001</strong><br>Ángel blanco — n.º <strong>015111340-0002</strong></div>
   
-    <p>Diseñamos una pieza que no ataca primero. El Ángel empieza dormido — ocupa su escaque, bloquea líneas, pero no puede moverse ni controlar. Espera.</p>
+    <p>Diseñamos una pieza que no ataca primero. El Ángel empieza dormido — ocupa su escaque, bloquea líneas, pero no puede moverse ni controlar. Espera. No es una debilidad. Es una decisión de diseño: una pieza cuyo poder depende enteramente de lo que el adversario decida hacer.</p>
     <p>Cuando el adversario cruza la Frontera, el Ángel se activa. A partir de ese momento se mueve exactamente 3 escaques en línea recta — horizontal, vertical o diagonal — siempre que los dos escaques intermedios estén libres. No puede capturar piezas tradicionales. Controla el escaque al que puede llegar, aunque esté ocupado. Si el rey está en un escaque controlado, está en jaque.</p>
+    <p>Esto crea lo que llamamos el <strong>nodo inesperado</strong>: un momento en el árbol de juego en el que una jugada que parecía puramente ofensiva — cruzar la Frontera — genera repentinamente nuevas posibilidades defensivas para el adversario. La posición se ramifica de una manera que ningún motor entrenado en ajedrez clásico puede anticipar completamente. La invasión desencadena algo que no existía antes.</p>
     <p>Una regla más: antes de que comience la partida, las negras mueven un Ángel 3 escaques hacia el centro. Esta es la apertura preliminar — obligatoria, sencilla, y no activa nada. Es la forma que tienen las negras de equilibrar la ventaja del primer movimiento de las blancas.</p>
-  </section>
-  
-    
-  <section style="padding:20px 0 10px; border-top: none;">
     <p><em>Si amas el ajedrez, este juego fue hecho para ti. El tablero te resultará familiar. Las reglas son pocas. Pero en el momento en que un Ángel se activa — y el territorio cambia — entenderás por qué lo creamos. Ven a jugar.</em></p>
   </section>
   <section id="heritage" style="padding:38px 0; border-top:1px solid #ccc;">
