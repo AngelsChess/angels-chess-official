@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chess of the Angels | Official Reference</title>
+  <title>Chess of the Angels | Official Reference - Nuño Valenzuela</title>
+<meta name="google-site-verification" content="n55z71GH5WBuPa1FcowrtyjZCFF_s81OijHtBtKdHZs" />
   <style>
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -71,15 +72,20 @@
       .img-row, .pieces-grid, .legal-grid, .card-grid { grid-template-columns: 1fr; }
       .lang-bar { justify-content: center; }
     }
-</style>
+
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    .nav-soon { color: #000 !important; text-decoration: none !important; background: #f2f2f2 !important; border: 1px solid #ddd !important; padding: 7px 16px; font-size: 14px; cursor: default !important; font-style: italic; }
+
+    </style>
 </head>
 <body>
 <main class="page">
 
-      <div class="lang-bar">
+        <div class="lang-bar">
     <span>🌐</span>
     <a href="https://angelschess.github.io/angels-chess-official/shakhmaty-angelov.html">RU</a>
-    <a href="https://angelschess.github.io/angels-chess-official/en/index.html" class="active">EN</a>
+    <a href="https://angelschess.github.io/angels-chess-official/" class="active">EN</a>
     <a href="https://angelschess.github.io/angels-chess-official/engle-sjakk.html">NO</a>
     <a href="https://angelschess.github.io/angels-chess-official/ajedrez-de-los-angeles.html">ES</a>
     <a href="https://angelschess.github.io/angels-chess-official/zh/index.html">中文</a>
@@ -91,13 +97,30 @@
     <a href="https://angelschess.github.io/angels-chess-official/tenshi-no-chesu.html">日本語</a>
     <a href="https://angelschess.github.io/angels-chess-official/shachmat-hamalachim.html">עב</a>
     <a href="https://angelschess.github.io/angels-chess-official/shatranj-malaika.html">عر</a>
+    <a href="https://angelschess.github.io/angels-chess-official/senterej.html">አማ</a>
   </div>
+
+<nav aria-label="Page sections">
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:4px 0 10px;">
+      <a href="#about">About Chess of the Angels</a>
+      <a href="#board">Board</a>
+      <a href="#pieces">Angel Pieces</a>
+      <a href="#legal">Legal</a>
+      <a href="#research">Research</a>
+      <a href="#qr">QR Access</a>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:0 0 6px;">
+      <a href="#" class="nav-soon">Buy Rules and Laws of the Game</a>
+      <a href="#" class="nav-soon">Download Algorithmic Rule Set</a>
+    </div>
+    <p style="text-align:center; font-size:12px; color:#999; margin:4px 0 0; font-style:italic; letter-spacing:0.5px;">Coming soon — work in progress</p>
+  </nav>
 
   <header id="top">
     <p class="welcome">Welcome</p>
     <h1>Chess of the Angels</h1>
     <p class="tagline">A chess variant designed for the era of human–AI collaboration.</p>
-    <p class="turing">Can machines think? If they cannot, what makes them so difficult to beat?</p>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/Gemini_Generated_Image_guthxtguthxtguth.png" alt="Allegorical cover artwork"></figure>
     <div class="challenge">
       <strong>The challenge</strong>
       <p>Chess is a finite, computable game — theoretically solvable, but not yet solved. What has been achieved is something more insidious: AI engines have accumulated so much knowledge that human intuition, creativity and experience no longer constitute a meaningful advantage.</p>
@@ -108,12 +131,9 @@
       <p>To restore a fair and balanced competition between human and machine. Chess of the Angels introduces a new logical dimension — not more pieces, not a bigger board, but a new type of conditioned causality — that allows human intuition and creativity to compete on equal terms with artificial intelligence.</p>
       <p>The variant also enables a new form of collaboration: human and AI can explore together a space where neither holds an accumulated advantage, making it a unique field for joint research, learning and discovery.</p>
     </div>
-    <figure><img src="https://angelschess.github.io/angels-chess-official/Gemini_Generated_Image_guthxtguthxtguth.png" alt="Allegorical cover artwork"><figcaption>Official allegorical artwork representing strategy, creativity and the symbolic role of the Angel.</figcaption></figure>
+    
   </header>
-  <nav>
-    <a href="#about">About</a><a href="#board">Board</a><a href="#pieces">Angel Pieces</a>
-    <a href="#legal">Legal</a><a href="#research">Research</a><a href="#qr">QR Access</a>
-  </nav>
+    
     <section id="about">
     <h2>About Chess of the Angels</h2>
     <p class="lead">Chess of the Angels was created from a simple question: can chess continue to evolve in an era where artificial intelligence has surpassed human players?</p>
@@ -137,10 +157,7 @@
     <p>We took the classical 8×8 chessboard and asked: what if four more squares existed — two on each side, exactly where the Angels begin? The result is a 68-square board. The central grid works exactly as in classical chess. The four new squares — x4, x5, y4 and y5 — are called the Angel Wings. They are real squares: any piece can enter, block or capture on them.</p>
     <p>We also created a boundary. Ranks 4 and 5 form the Frontier — the line that separates the two territories. When an opposing piece crosses your Frontier, your Angels wake up. That is the heart of the game.</p>
   
-    <p>We designed a piece that does not attack first. The Angel starts asleep — it occupies its square, blocks lines, but cannot move or control. It waits.</p>
-    <p>When the opponent crosses the Frontier, the Angel activates. From that moment it moves exactly 3 squares in a straight line — horizontal, vertical or diagonal — as long as both intermediate squares are free. It cannot capture traditional pieces. It controls the square it can reach, even if occupied. If the king stands on a controlled square, it is in check.</p>
-    <p>One more rule: before the game begins, Black moves one Angel 3 squares toward the centre. This is the preliminary opening — mandatory, simple, and it does not activate anything. It is Black's way of balancing White's first-move advantage.</p>
-  </section>
+    </section>
   <section id="pieces">
     <h2>The Angel Pieces</h2>
     <p class="lead">Each player begins with 18 pieces: 16 traditional plus 2 Angels.</p>
@@ -153,22 +170,44 @@
     </div>
     <div class="legal-box"><strong>Registered EU designs:</strong><br>Black Angel — EUIPO No. <strong>015111340-0001</strong><br>White Angel — EUIPO No. <strong>015111340-0002</strong></div>
   
-    <p>We designed a piece that does not attack first. The Angel starts asleep — it occupies its square, blocks lines, but cannot move or control. It waits.</p>
+    <p>We designed a piece that does not attack first. The Angel starts asleep — it occupies its square, blocks lines, but cannot move or control. It waits. This is not a weakness. It is a design decision: a piece whose power depends entirely on what the opponent chooses to do.</p>
     <p>When the opponent crosses the Frontier, the Angel activates. From that moment it moves exactly 3 squares in a straight line — horizontal, vertical or diagonal — as long as both intermediate squares are free. It cannot capture traditional pieces. It controls the square it can reach, even if occupied. If the king stands on a controlled square, it is in check.</p>
+    <p>This creates what we call the <strong>unexpected node</strong>: a moment in the game tree where a move that seemed purely offensive — crossing the Frontier — suddenly generates new defensive possibilities for the opponent. The position branches in a way that no engine trained on classical chess can fully anticipate. The invasion triggers something that did not exist before.</p>
     <p>One more rule: before the game begins, Black moves one Angel 3 squares toward the centre. This is the preliminary opening — mandatory, simple, and it does not activate anything. It is Black's way of balancing White's first-move advantage.</p>
-  </section>
-  
-    
-  <section style="padding:20px 0 10px; border-top: none;">
     <p><em>If you love chess, this game was made for you. The board will feel familiar. The rules are few. But the moment an Angel activates — and the territory shifts — you will understand why we built it. Come and play.</em></p>
   </section>
+  
+  <section id="why-angels" style="padding:38px 0; border-top:1px solid #ccc;">
+    <h2>Why Chess of the Angels?</h2>
+    <p class="lead"><em>From game design and computational theory</em></p>
+
+    <h3>1. The end of accumulated opening theory</h3>
+    <p>Modern chess has been deeply theorised by computers. Stockfish, Leela Chess Zero and AlphaZero have analysed millions of games and generated opening knowledge that extends to move 30 or beyond. A piece that generates unexpected nodes renders that accumulated knowledge obsolete from move 1, forcing both players — human and machine — to reason from basic strategic principles rather than retrieving memorised lines.</p>
+
+    <h3>2. The collapse of traditional chess engines</h3>
+    <p>Engines based on alpha-beta pruning and brute-force calculation face a combinatorial explosion when confronted with the Angel. But the problem is not merely one of scale: the search tree ceases to be static. The value of each node depends on a variable external to the board — the activation state of the Angels — which did not exist in classical chess. The game rewards human intuition and psychological flexibility over deep, rigid calculation.</p>
+
+    <h3>3. Structural uncertainty: the permanent Plan B</h3>
+    <p>Classical chess is a perfect abstract war: all information is visible, there is no randomness, no fog. The Angel introduces fog in a structural, not random, way. Every territorial advance activates resources that previously did not exist. The invading player knows what they are doing — but cannot calculate exactly what position will result from that activation in the future. Plan B ceases to be an option and becomes a permanent strategic necessity.</p>
+
+    <h3>4. Asymmetric information and deferred causality</h3>
+    <p>In classical chess all information is on the board at every moment — it is a game of perfect information. The Angel introduces something qualitatively new: a variable whose moment of change depends on a future decision by the opponent. This is not random uncertainty. It is strategic uncertainty: the invading player knows they will activate the opponent's Angels, but cannot know what exact consequences that activation will have on a position that does not yet exist. That has never occurred before in the history of chess.</p>
+
+    <div style="border-left:4px solid #000; padding:16px 22px; background:#f7f7f7; margin-top:32px;">
+      <h3 style="margin-top:0;">A message from the future</h3>
+      <p><em>Chess of the Angels was not born to compete with classical chess. It was born to extend it.</em></p>
+      <p>When AlphaZero demonstrated in 2017 that a system capable of learning from scratch — without prior knowledge, without opening theory, without databases — could surpass Stockfish, the most powerful engine trained over decades, in just a few hours, the world witnessed something that transcended chess: proof that pure learning can overcome accumulated knowledge.</p>
+      <p>Chess of the Angels carries that same logic to the physical board. Every game begins from zero. No engine accumulates advantage. No database helps. The player who knows how to read the moment of activation — who understands when to invade and when to wait — holds an advantage that no algorithm can purchase with calculation time.</p>
+      <p><em>This is the board of the future: not larger, not faster, but structurally more honest. A board where human intelligence and artificial intelligence can sit face to face, without either arriving with the answer already prepared. The game that awaits them both.</em></p>
+    </div>
+  </section>
   <section id="heritage" style="padding:38px 0; border-top:1px solid #ccc;">
-    <h2>A Game That Belongs to Everyone</h2>
-    <p class="lead" style="margin-bottom:28px;">Chess of the Angels was built on the shoulders of a game that has shaped civilisations. Every language in this site carries a history.</p>
+    <h2>A game that belongs to everyone</h2>
+    <p class="lead" style="margin-bottom:28px;">Chess has no borders. Each language on this site carries a different history of the same game.</p>
     <div style="border-left: 4px solid #000; padding:20px 24px; background:#f9f9f9;">
       <div style="margin-bottom:14px;">
         <strong style="font-size:15px;">RU — Russian</strong>
-        <p style="margin:4px 0 0; font-size:15px; color:#333;">Where the chessboard is a philosophical battlefield and the cradle of a perpetual dynasty of intellectual titans.</p>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Where the chessboard is a philosophical battlefield and the cradle of a perpetual dynasty of intellectual titans. In 1824, Aleksandr Petrov — considered the first great Russian chess master — published the first chess manual in the Russian Empire: <em>Chess Game, Systematically Analysed</em>, in Saint Petersburg.</p>
       </div>
       <div style="margin-bottom:14px;">
         <strong style="font-size:15px;">EN — English</strong>
@@ -180,7 +219,7 @@
       </div>
       <div style="margin-bottom:14px;">
         <strong style="font-size:15px;">ES — Spanish</strong>
-        <p style="margin:4px 0 0; font-size:15px; color:#333;">Timeless elegance and poetry over the board, from the natural genius of Capablanca to the fierce new generation reshaping Iberian chess.</p>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">The Spanish-speaking world carried out the most revolutionary cultural transformation in the modern history of chess. At the court of the Catholic Monarchs in the late 15th century, the slow old piece of the <em>alferes</em> became the all-powerful Queen, accelerating the aesthetic aggression of the game forever. The first printed book on modern chess — <em>Repetición de Amores y Arte de Ajedrez</em> by Luis Ramírez de Lucena (1497) — introduced the current rules with the Queen and the modern board.</p>
       </div>
       <div style="margin-bottom:14px;">
         <strong style="font-size:15px;">中文 — Chinese</strong>
@@ -216,7 +255,11 @@
       </div>
       <div style="margin-bottom:14px;">
         <strong style="font-size:15px;">عر — Arabic</strong>
-        <p style="margin:4px 0 0; font-size:15px; color:#333;">The ancestral echo of Shatranj, the mythical root where it all began over a thousand years ago.</p>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">During the Islamic Golden Age, the Arabic-speaking world created the literary and poetic legacy of Shatranj, writing the first formal treatises on chess problems (<em>mansubat</em>) and connecting the game with philosophy and sacred geometry. The ancestral echo where it all began over a thousand years ago.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">አማ — Amharic</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Home of Senterej, the oldest living chess variant in Africa, descended directly from Persian Shatranj. Ethiopia preserved the ancient rules for centuries in isolation, becoming a living archaeological record of the game before the modern revolution of the 15th century.</p>
       </div>
     </div>
   </section>
