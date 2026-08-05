@@ -1,1 +1,279 @@
 
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Հրեշտակների Շախմատ | Պաշտոնական տեղեկատու</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #fff; color: #000;
+      font-family: Baskerville, "Libre Baskerville", Georgia, serif;
+      font-size: 17px; line-height: 1.75; }
+    .page { width: min(860px, calc(100% - 28px)); margin: 0 auto; }
+    .lang-bar { display: flex; justify-content: flex-end; align-items: center;
+      gap: 5px; padding: 10px 0 8px; font-size: 13px;
+      border-bottom: 1px solid #e0e0e0; flex-wrap: wrap; }
+    .lang-bar span { color: #888; margin-right: 4px; }
+    .lang-bar a { color: #000; text-decoration: none; border: 1px solid #ccc;
+      padding: 3px 8px; border-radius: 2px; font-size: 12px; }
+    .lang-bar a:hover { background: #000; color: #fff; border-color: #000; }
+    .lang-bar a.active { background: #000; color: #fff; border-color: #000; font-weight: bold; }
+    header { text-align: center; padding: 44px 0 24px; border-bottom: 2px solid #000; }
+    .welcome { margin: 0 0 6px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #777; }
+    h1 { margin: 0 0 8px; font-size: clamp(36px, 7vw, 68px); line-height: 1; }
+    .tagline { margin: 0 auto 20px; max-width: 680px; font-size: clamp(16px,2.2vw,20px); font-style: italic; color: #333; }
+    .turing { margin: 0 auto 24px; font-size: clamp(18px,2.8vw,26px); font-style: italic; }
+    .challenge, .objective { margin: 0 auto 22px; max-width: 720px; border-left: 4px solid #000;
+      padding: 16px 22px; background: #f7f7f7; text-align: left; }
+    .objective { border-left-color: #555; background: #f0f0f0; }
+    .challenge strong, .objective strong { display: block; margin-bottom: 8px; font-size: 16px; }
+    .challenge p, .objective p { margin: 0 0 8px; font-size: 15px; color: #333; line-height: 1.7; }
+    .challenge p:last-child, .objective p:last-child { margin: 0; }
+    figure { margin: 0 auto 32px; text-align: center; max-width: 720px; }
+    figure img { display: block; width: 100%; max-height: 560px; object-fit: contain; margin: 0 auto; }
+    figcaption { margin: 10px auto 0; font-size: 13px; font-style: italic; color: #666; max-width: 600px; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 36px; }
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    section { padding: 38px 0; border-top: 1px solid #ccc; }
+    h2 { margin: 0 0 18px; font-size: clamp(24px,4vw,36px); }
+    h3 { margin: 0 0 10px; font-size: 20px; }
+    p { margin: 0 0 14px; color: #222; font-size: 17px; }
+    .lead { font-size: 18px; color: #111; }
+    .img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+    .img-row figure { margin: 0; }
+    .img-row img { width: 100%; max-height: 340px; object-fit: contain; }
+    .pieces-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 20px 0; }
+    .pieces-grid figure { margin: 0; text-align: center; }
+    .pieces-grid img { width: 100%; max-height: 260px; object-fit: contain; }
+    .pieces-grid figcaption { font-size: 13px; font-style: italic; color: #666; margin-top: 6px; }
+    .legal-box { padding: 16px 20px; border: 1px solid #000; border-left: 5px solid #000;
+      font-size: 15px; background: #f9f9f9; margin-top: 16px; line-height: 1.8; }
+    .legal-box strong { color: #000; } .legal-box a { color: #000; }
+    .legal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 18px; }
+    .legal-item { border: 1px solid #000; padding: 16px; font-size: 14px; }
+    .legal-item strong { display: block; margin-top: 4px; overflow-wrap: anywhere; font-size: 15px; }
+    .card-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 20px; }
+    .card { border: 1px solid #ccc; padding: 18px; }
+    .card h3 { font-size: 16px; margin-bottom: 8px; }
+    .card p { font-size: 15px; margin: 0; color: #444; }
+    .qr-section { text-align: center; border: 2px solid #000; padding: 32px 28px; margin: 32px 0; }
+    .qr-img { display: block; width: 150px; height: 150px; margin: 18px auto; image-rendering: pixelated; }
+    .url { display: inline-block; border: 1px solid #000; padding: 9px 16px; margin-top: 10px;
+      font-size: 14px; overflow-wrap: anywhere; color: #000; text-decoration: none; }
+    .url:hover { background: #000; color: #fff; }
+    footer { border-top: 1px solid #000; text-align: center; padding: 26px 0 38px; font-size: 14px; color: #555; }
+    @media (max-width: 640px) {
+      .img-row, .pieces-grid, .legal-grid, .card-grid { grid-template-columns: 1fr; }
+      .lang-bar { justify-content: center; }
+    }
+
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    .nav-soon { color: #000 !important; text-decoration: none !important; background: #f2f2f2 !important; border: 1px solid #ddd !important; padding: 7px 16px; font-size: 14px; cursor: default !important; font-style: italic; }
+
+    </style>
+</head>
+<body>
+<main class="page">
+      <div class="lang-bar">
+    <span>🌐</span>
+    <a href="https://angelschess.github.io/angels-chess-official/shakhmaty-angelov.html">RU</a>
+    <a href="https://angelschess.github.io/angels-chess-official/">EN</a>
+    <a href="https://angelschess.github.io/angels-chess-official/engle-sjakk.html">NO</a>
+    <a href="https://angelschess.github.io/angels-chess-official/ajedrez-de-los-angeles.html">ES</a>
+    <a href="https://angelschess.github.io/angels-chess-official/zh/index.html">中文</a>
+    <a href="https://angelschess.github.io/angels-chess-official/co-vua-thien-than.html">VI</a>
+    <a href="https://angelschess.github.io/angels-chess-official/hreshtakneri-shakhmat.html" class="active">ՀՅ</a>
+    <a href="https://angelschess.github.io/angels-chess-official/echecs-des-anges.html">FR</a>
+    <a href="https://angelschess.github.io/angels-chess-official/engla-skak.html">IS</a>
+    <a href="https://angelschess.github.io/angels-chess-official/melekler-satranci.html">TR</a>
+    <a href="https://angelschess.github.io/angels-chess-official/tenshi-no-chesu.html">日本語</a>
+    <a href="https://angelschess.github.io/angels-chess-official/shachmat-hamalachim.html">עב</a>
+    <a href="https://angelschess.github.io/angels-chess-official/shatranj-malaika.html">عر</a>
+    <a href="https://angelschess.github.io/angels-chess-official/senterej.html">አማ</a>
+  </div>
+
+<nav aria-label="Page sections">
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:4px 0 10px;">
+      <a href="#about">Հրեշտակների Շախմատի մասին</a>
+      <a href="#board">Տախտակ</a>
+      <a href="#pieces">Հրեշտակ Խաղաքարեր</a>
+      <a href="#legal">Իրավական</a>
+      <a href="#research">Հետazotut'yun</a>
+      <a href="#qr">QR</a>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:0 0 6px;">
+      <a href="#" class="nav-soon">Գնել Խաղի Կանոններ</a>
+      <a href="#" class="nav-soon">Ներբեռնել Ալգորիթմական Կանոնների Հավաքածու</a>
+    </div>
+    <p style="text-align:center; font-size:12px; color:#999; margin:4px 0 0; font-style:italic; letter-spacing:0.5px;">Շուտով — մշակման փուլում</p>
+  </nav>
+
+  <header id="top">
+    <p class="welcome">Բարի գալուստ</p>
+    <h1>Հրեշտակների Շախմատ</h1>
+    <p class="tagline">Շախմատի մի տարբերակ, որը նախատեսված է մարդ–ԱԲ համագործակցության դարաշրջանի համար։</p>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/Gemini_Generated_Image_guthxtguthxtguth.png" alt=""></figure>
+    <div class="challenge">
+      <strong>Մարտահրավերը</strong>
+      <p>Շախմատը վերջավոր, հաշվարկելի խաղ է — տեսականորեն լուծելի, բայց դեռ չի լուծվել: Արհեստական բանականության շարժիչները կուտակել են այնքան գիտելիք, որ մարդկային ինտուիցիան, ստեղծագործականությունն ու փորձը այլևս իրական առավելություն չեն տալիս:</p>
+      <p>Հրեշտակների Շախմատը ստեղծվել է այս նոր իրականության պատասխանը: Պայմանական ակտիվացման մեխանիզմը կառուցվածքային անորոշություն է ներմուծում, որը ոչ մի շարժիչ ի վիճակի չէ լիովին կանխատեսել:</p>
+    </div>
+    <div class="objective">
+      <strong>Նպատակը</strong>
+      <p>Վերականգնել մարդու և մեքենայի միջև արդար ու հավասարակշռված մրցակցությունը: Հրեշտակների Շախմատը ներմուծում է նոր տրամաբանական հարթություն, որը թույլ է տալիս մարդկային ինտուիցիային և ստեղծագործականությանը հավասար պայմաններով մրցել ԱԲ-ի հետ:</p>
+      <p>Այս տարբերակը նաև հնարավորություն է տալիս նոր համագործակցության. մարդն ու ԱԲ-ը կարող են միասին ուսումնասիրել մի տարածք, որտեղ ոչ ոք կուտակված առավելություն չունի:</p>
+    </div>
+    
+  </header>
+    
+  <section id="about">
+    <h2>Հրեշտակների Շախմատի մասին</h2>
+    <p class="lead">Հրեշտակների Շախմատը ծնվել է մի պարզ հարցից. կարո՞ղ է շախմատը շարունակել զարգանալ այն դարաշրջանում, երբ ԱԲ-ն գերազանցել է մարդ խաղացողներին:</p>
+    <p>Դարեր շարունակ շախմատը ներկայացնում էր մարդկության ամենամեծ մտավոր ձեռքբերումներից մեկը: Այսօր ԱԲ-ի շարժիչները վայրկյանում վերլուծում են միլիոնավոր դիրքեր:</p><p>Հրեշտակների Շախմատը ստեղծվել է այս նոր իրականությանը պատասխանելու համար: 68-վանդակ տախտակ, Հրեշտակի Թևերի չորս վանդակ, երկու Հրեշտակ յուրաքանչյուր կողմի համար և եզակի պայմանական ակտիվացման մեխանիզմ:</p><p>Ի տարբերություն բոլոր ավանդական խաղաքարերի, Հրեշտակը ողջ խաղի ընթացքում նույն հնարավորությունները չունի: Այն սկսում է ոչ ակտիվ վիճակում և ակտիվ է դառնում, երբ հակառակ կողմն անցնում է տարածքային սահմանը:</p>
+    <p>Հրեշտակների Շախմատը ներմուծում է նոր հայեցակարգ. <strong>վիճակից կախված խաղաքարեր</strong>: Հրեշտակի հնարավորությունները կախված են դիրքի պատմությունից, ոչ միայն երկրաչափությունից:</p><p>Նպատակը շախմատը պատահական դարձնելը չէ: Նպատակն է պարգևատրել ստեղծագործականությունը անգիր անելու փոխարեն:</p><p>Հրեշտակների Շախմատը նաև ԱԲ-ի հետազոտության հետաքրքիր հարթակ է: Տարբերակն ապահովում է նոր միջավայր՝ առանց դարերի բացային տեսության:</p>
+    <p><em>Յուրաքանչյուր խաղ սկսվում է որպես չուսումնասիրված տարածք: Յուրաքանչյուր դիրք հրավիրում է նոր գաղափարներ: Յուրաքանչյուր արշավ հետևանքներ է կրում:</em></p>
+  </section>
+  <section id="board">
+    <h2>Պաշտոնական Տախտակ</h2>
+    <div class="img-row">
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image7.png" alt=""><figcaption>68-վանդակ պաշտոնական տախտակ Հրեշտակի Թևերի ընդլայնումներով:</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image15.png" alt=""><figcaption>Պաշտոնական կոորդինատային համակարգ։ a–h սյուներ և x4, x5, y4, y5 կողային վանդակներ:</figcaption></figure>
+    </div>
+    <p>Սյուների կարգ Սպիտակի ձախ կողմից. <strong>X, a, b, c, d, e, f, g, h, Y</strong>: Հրեշտակն ամփոփվում է <strong>G</strong>-ով:</p>
+    <div class="legal-box"><strong>ԵՄ-ում գրանցված արդյունաբերական ձևավորում.</strong> 68-վանդակ տախտակ — EUIPO № <strong>015110333-0001</strong></div>
+  
+    <p>Մենք վերցրինք 8×8 դասական շախմատի տախտակը և հարցրեցինք. ի՞նչ կլիներ, եթե գոյություն ունենային ևս չորս վանդակ — երկուական կողմից, հենց այն տեղում, որտեղ Հրեշտակները սկսում են: Արդյունքը 68 վանդականի տախտակ է: Կենտրոնական ցանցն աշխատում է ճիշտ այնպես, ինչպես դասական շախմատում: Չորս նոր վանդակները — x4, x5, y4 և y5 — կոչվում են Հրեշտակի Թևեր: Դրանք իրական վանդակներ են. ցանկացած կտոր կարող է մտնել, արգելափակել կամ գրավել դրանց վրա:</p>
+    <p>Մենք նաև ստեղծեցինք սահման: 4-րդ և 5-րդ շարքերը կազմում են Սահমանը — երկու տարածքները բաժանող գիծը: Երբ հակառակ կողմի կտորը հատում է ձեր Սահմանը, ձեր Հրեշտակները արթնանում են: Սա խաղի սիրտն է:</p>
+  
+    </section>
+  <section id="pieces">
+    <h2>Հրեշտակ Խաղաքարեր</h2>
+    <p class="lead">Յուրաքանչյուր խաղացող սկսում է 18 խաղաքարով՝ 16 ավանդական + 2 Հրեշտակ:</p>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/image2.png" alt=""><figcaption>Սպիտակ Հրեշտակ և Սև Հրեշտակ — երկգույն, ռումբից ոգեշնչված ձևավորում:</figcaption></figure>
+    <div class="pieces-grid">
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image16.png" alt=""><figcaption>Սպիտակ Հրեշտակ — դիմային:</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image17.png" alt=""><figcaption>Սև Հրեշտակ — դիմային:</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image18.png" alt=""><figcaption>Սպիտակ Հրեշտակ — հեռանկար:</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image19.png" alt=""><figcaption>Սև Հրեշտակ — հեռանկար:</figcaption></figure>
+    </div>
+    <div class="legal-box"><strong>ԵՄ-ում գրանցված արդյունաբերական ձևավորումներ.</strong><br>Սև Հրեշտակ — EUIPO № <strong>015111340-0001</strong><br>Սպիտակ Հրեշտակ — EUIPO № <strong>015111340-0002</strong></div>
+  
+    <p>Մենք ստեղծեցինք կտոր, որը առաջինը չի հարձակվում: Հրեշտակն սկսում է «քնած» վիճակում — զբաղեցնում է իր վանդակը, արգելափակում գծերը, բայց չի կարող շարժվել կամ վերահսկել: Այն սպասում է: Սա թուլություն չէ: Սա դիզայնի գիտակցված որոշում է. կտոր, որի ուժը ամբողջությամբ կախված է հակառակ կողմի ընտրությունից:</p>
+    <p>Երբ հակառակ կողմն անցնում է Սահմանը, Հրեշտակն ակտիվանում է: Այդ պահից սկսած այն շարժվում է ճիշտ 3 վանդակ ուղիղ գծով: Այն չի կարող գրավել ավանդական կտորներ, սակայն վերահսկում է հասանելի վանդակը: Եթե թագավորն ու կանգնած է վերահսկվող վանդակի վրա, նա շախի մեջ է:</p>
+    <p>Սա ստեղծում է այն, ինչ մենք անվանում ենք <strong>անսպասելի հանգույց</strong>. խաղի ծառի մի պահ, երբ զուտ հարձակողական թվացող քայլը — Սահմանի հատումը — հանկարծ նոր պաշտպանական հնարավորություններ է ստեղծում հակառակ կողմի համար: Դիրքն ճյուղավորվում է այնպիսի ձևով, որ ոչ մի դասական շախմատի վրա ուսուցանված շարժիչ ի վիճակի չէ ամբողջությամբ կանխատեսել:</p>
+    <p>ԵՒս մեկ կանոն. մինչ խաղն սկսվի, Սևերն անում են մեկ Հրեշտակ 3 վանդակ դեպի կենտրոն: Սա նախնական բացումն է — պարտադիր, պարզ, և ոչ մի բան չի ակտիվացնում:</p>
+    <p><em>Եթե սիրում եք շախմատ, այս խաղը ստեղծվել է ձեզ համար: Տախտակը ծանոթ կթվա: Կանոններն քիչ են: Բայց այն պահին, երբ Հրեշտակն ակտիվանում է — և տարածքը փոխվում է — կհասկանաք, թե ինչու ենք մենք ստեղծել այն: Եկեք և խաղացե'ք:</em></p>
+  </section>
+
+  <section id="why-angels" style="padding:38px 0; border-top:1px solid #ccc;">
+    <h2>Ինչո՞ւ Հրեշտակների Շախմատ:</h2>
+    <p class="lead"><em>Խաղի դիզայնի և հաշվողական տեսության տեսանկյունից</em></p>
+
+    <h3>1. Կուտակված բացումների տեսության ավարտ</h3>
+    <p>Ժամանակակից շախմատը խորությամբ տեսականացվել է համակարգիչների կողմից: Stockfish-ը, Leela Chess Zero-ն և AlphaZero-ն վերլուծել են միլիոնավոր խաղ և ստեղծել բացումների գիտելիք, որը ձգվում է մինչև 30-րդ քայլ: Անսպասելի հանգույցներ ստեղծող կտորն անօգտագործելի է դարձնում այդ կուտակված գիտելիքը 1-ին քայլից: Խաղը պարգևատրում է մարդկային ինտուիցիան և հոգեբանական ճկունությունը:</p>
+
+    <h3>2. Ավանդական շախմատային շարժիչների փլուզում</h3>
+    <p>Ալֆա-բետա կտրման վրա հիմնված շարժիչները կոմբինատոր պայթյունի են բախվում Հրեշտակի հետ: Բայց խնդիրն ոչ միայն մասշտաբն է. որոնման ծառը դադարում է ստատիկ լինել: Յուրաքանչյուր հանգույցի արժեքը կախված է տախտակից արտաքին փոփոխականից — Հրեշտակների ակտիվացման վիճակից:</p>
+
+    <h3>3. Կառուցվածքային անորոշություն. մշտական «Պլան Բ»</h3>
+    <p>Դասական շախմատը կատարյալ վերացական պատերազմ է: Հրեշտակն ունակ է ներդնել մշուշ կառուցվածքային, ոչ պատահական ձևով: Յուրաքանչյուր տարածքային առաջընթաց ակտիվացնում է ռեսուրսներ, որոնք նախկինում գոյություն չունեին: «Պլան Բ»-ն դադարում է տարբերակ լինել և դառնում մշտական ​​ռազմավարական անհրաժեշտություն:</p>
+
+    <h3>4. Ասիմետրիկ տեղեկատվություն և հետաձգված պատճառականություն</h3>
+    <p>Դասական շախմատում բոլոր տեղեկությունները միշտ տախտակի վրա են — սա կատարյալ տեղեկատվությամբ խաղ է: Հրեշտակն ի հայտ է բերում որակապես նոր բան. փոփոխական, որի փոփոխման պահը կախված է հակառակ կողմի ապագա որոշումից: Սա ռազմավարական անորոշություն է: Դա երբևէ չի եղել շախմատի պատմության մեջ:</p>
+
+    <div style="border-left:4px solid #000; padding:16px 22px; background:#f7f7f7; margin-top:32px;">
+      <h3 style="margin-top:0;">Ուղերձ ապագայից</h3>
+      <p><em>Հրեշտակների Շախմատը չծնվեց դասական շախմատի հետ մրցելու համար: Այն ծնվեց այն երկարացնելու համար:</em></p>
+      <p>Երբ AlphaZero-ն 2017-ին ապացուցեց, որ զրոյից սովորող համակարգ կարող է մի քանի ժամում գերազանցել Stockfish-ին, աշխարհը ականատես եղավ շախմատը գերազանցող բանի. ապացույցի, որ մաքուր ուսուցումը կարող է գերազանցել կուտակված գիտելիքը:</p>
+      <p>Հրեշտակների Շախմատը նույն տրամաբանությունը բերում է ֆիզիկական տախտակ: Յուրաքանչյուր խաղ սկսվում է զրոյից: Ոչ մի շարժիչ առավելություն չի կուտակում: Ոչ մի տվյալների բազա չի օգնում: Ակտիվացման պահը կարդալ կարողացող խաղացողն ունի առավելություն, որ ոչ մի ալգորիթմ հաշվողական ժամանակով չի կարող գնել:</p>
+      <p><em>Սա ապագայի տախտակն է. ոչ ավելի մեծ, ոչ ավելի արագ, այլ կառուցվածքային ավելի ազնիվ: Տախտակ, որտեղ մարդկային բանականությունն ու արհեստական ​​բանականությունը կարող են նստել դեմ դիմաց՝ առանց նախապես պատրաստված պատասխանի: Խաղ, որն սպասում է նրանց երկուսին:</em></p>
+    </div>
+  </section>
+  <section id="heritage" style="padding:38px 0; border-top:1px solid #ccc;">
+    <h2>Խաղ, որը Պատկանում է Բոլորին</h2>
+    <p class="lead" style="margin-bottom:28px;">Հրեշտակների Շախմատը ստեղծվել է մի խաղի ուսերին, որն ձևավորել է քաղաքակրթություններ:</p>
+    <div style="border-left: 4px solid #000; padding:20px 24px; background:#f9f9f9;">
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">RU — Ռուսերեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Որտեղ շախմատի տախտակը փիլիսոփայական մարտադաշտ է և մտավոր տիտանների հավիտենական դինաստիայի օրրան:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">EN — Անգլերեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Այն լեզուն, որը համընդհանրացրեց խաղը, կնքված Բոբի Ֆիշերի ապըստամբ ու մենախոս հանճարով:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">NO — Նորվեգերեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Ժամանակակից դարաշրջանի հայելին, որտեղ Մագնուս Կարլսենի ինտուիցիան և բացարձակ սառնությունը վերաշարադրեցին մարդկային սահմանները:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">ES — Իսպաներեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Անժամկետ էլեգանտություն և պոեզիա տախտակի վրա, Կապաբլանկայի բնական հանճարից մինչև իբերական շախմատը վերափոխող նոր սերունդ:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">中文 — Չիներեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Հազարամյա համբերություն և կոլեկտիվ կարգապահություն, ուղղված ժամանակակից էլիտայի բացարձակ գերիշխանությանը:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">VI — Վիետնամերեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Հարավ-Արևելյան Ասիան վերափոխող նոր ուժի կենդանի էներգիան և մարտավարական խոր հայացքը:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">ՀՅ — Հայերեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Ազգ, որտեղ շախմատը ոչ թե զբաղմունք է, այլ ազգային ինքնության և մտավոր գոյատևման ձև:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">FR — Ֆրանսերեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Դասական ավանդույթ և ռազմավարական կատարելություն, որոնք ձևավորեցին արևմտյան շախմատային մտածողությունը:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">IS — Իսլանդերեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Աշխարհագրական մեկուսացումը վերածված մեստիցիզմի, 1972 թ. լեգենդար աշխարհաքաղաքական բախման հավիտենական վկան:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">TR — Թուրքերեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Տախտակի ապագան կառուցող նոր սերունդների լուռ ցանքը:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">日本語 — Ճապոներեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Հազարամյա արևելյան մարտավարական ավանդույթի և համաշխարհային շախմատի տեխնոլոգիական կամուրջը:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">עב — Եբրայերեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Վերլուծական սրություն և սերնդեսերունդ մարտավարական կատարելության մշտական հետապնդում:</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">عر — Արաբերեն</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Շատրանջի նախնական արձագանքը, այն դիցաբանական արմատը, որտեղ ամեն ինչ սկսվեց ավելի քան հազար տարի առաջ:</p>
+      </div>
+    </div>
+  </section>
+  <section id="qr">
+    <div class="qr-section">
+      <img class="qr-img" src="https://angelschess.github.io/angels-chess-official/qrcode-angel-chess.png" alt="">
+      <div><a class="url" href="https://angelschess.github.io/angels-chess-official/">angelschess.github.io/angels-chess-official/</a></div>
+    </div>
+  </section>
+  <section id="legal">
+    <h2>Իրավական և Գրանցման Տեղեկություններ</h2>
+    <div class="legal-grid">
+      <div class="legal-item">68-վանդակ տախտակ<strong>EUIPO 015110333-0001</strong></div>
+      <div class="legal-item">Սև Հրեշտակ<strong>EUIPO 015111340-0001</strong></div>
+      <div class="legal-item">Սպիտակ Հրեշտակ<strong>EUIPO 015111340-0002</strong></div>
+    </div>
+    <div class="legal-box" style="margin-top:16px;">
+      <strong>Հեղինակային իրավունք.</strong> © 2025–2026 Nuño Alberto Valenzuela Alonso: Բոլոր իրավունքները պաշտպանված են:<br><strong>Safe Creative.</strong> Գրանցված:<br><br>
+      <strong>Ռեպոզիտոր.</strong> <a href="https://github.com/AngelsChess/angels-chess-official">github.com/AngelsChess/angels-chess-official</a><br><strong>EUIPO ստուգում.</strong> euipo.europa.eu/eSearch · № 015110333-0001
+    </div>
+    <div class="legal-box" style="margin-top:14px; border-left-color:#555;">
+      <strong>Ընթացիկ աշխատանքներ.</strong><br>· Կանոնների ալգորիթմական ֆորմալիզացիա (State-Space Modeling):<br>· <strong>Շուտով.</strong> Խաղի Կանոններ (Ամբողջական հրատarakeutyun):<br>· Մաթեմատիկական մոդելի թարգմանություն ընթացքի մեջ:
+    </div>
+  </section>
+  <footer><strong>Հրեշտակների Շախմատ</strong> · © 2025–2026 Nuño Alberto Valenzuela Alonso:</footer>
+
+</main>
+</body>
+</html>
