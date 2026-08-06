@@ -1,0 +1,54 @@
+cff-version: 1.2.0
+
+message: >
+  If you use Chess of the Angels in academic research,
+  software development, publications, teaching materials
+  or computational experiments, please cite this project
+  using the metadata provided in this file.
+
+title: "Chess of the Angels"
+
+type: software
+
+authors:
+  - family-names: "Valenzuela Alonso"
+    given-names: "Nuño Alberto"
+
+contact:
+  - family-names: "Valenzuela Alonso"
+    given-names: "Nuño Alberto"
+
+version: "1.0.0"
+
+date-released: "2026-08-03"
+
+abstract: >
+  Chess of the Angels is a chess variant designed for the era
+  of human-AI collaboration. It introduces a 68-square board,
+  four Angel Wing squares, two Angel pieces per player,
+  a mandatory preliminary opening move and a conditional
+  territorial activation mechanism. The project includes
+  the official rulebook, registered board and piece designs,
+  diagrams and technical specifications for computational
+  implementation, including the planned AFEN notation,
+  state-space model and reference engine documentation.
+
+keywords:
+  - "Chess of the Angels"
+  - "chess variant"
+  - "artificial intelligence"
+  - "human-AI collaboration"
+  - "game theory"
+  - "chess engine"
+  - "reinforcement learning"
+  - "state-space modelling"
+  - "AFEN"
+  - "Forsyth-Edwards Notation"
+  - "board games"
+  - "computational research"
+
+repository-code: "https://github.com/AngelsChess/angels-chess-official"
+
+url: "https://angelschess.github.io/angels-chess-official/"
+
+license-url: "https://github.com/AngelsChess/angels-chess-official/blob/main/LICENSE"
