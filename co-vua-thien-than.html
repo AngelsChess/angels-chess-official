@@ -1,1 +1,280 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cờ Thiên Thần | Trang Tham Khảo Chính Thức</title>
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: #fff; color: #000;
+      font-family: Baskerville, "Libre Baskerville", Georgia, serif;
+      font-size: 17px; line-height: 1.75; }
+    .page { width: min(860px, calc(100% - 28px)); margin: 0 auto; }
+    .lang-bar { display: flex; justify-content: flex-end; align-items: center;
+      gap: 5px; padding: 10px 0 8px; font-size: 13px;
+      border-bottom: 1px solid #e0e0e0; flex-wrap: wrap; }
+    .lang-bar span { color: #888; margin-right: 4px; }
+    .lang-bar a { color: #000; text-decoration: none; border: 1px solid #ccc;
+      padding: 3px 8px; border-radius: 2px; font-size: 12px; }
+    .lang-bar a:hover { background: #000; color: #fff; border-color: #000; }
+    .lang-bar a.active { background: #000; color: #fff; border-color: #000; font-weight: bold; }
+    header { text-align: center; padding: 44px 0 24px; border-bottom: 2px solid #000; }
+    .welcome { margin: 0 0 6px; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #777; }
+    h1 { margin: 0 0 8px; font-size: clamp(36px, 7vw, 68px); line-height: 1; }
+    .tagline { margin: 0 auto 20px; max-width: 680px; font-size: clamp(16px,2.2vw,20px); font-style: italic; color: #333; }
+    .turing { margin: 0 auto 24px; font-size: clamp(18px,2.8vw,26px); font-style: italic; }
+    .challenge, .objective { margin: 0 auto 22px; max-width: 720px; border-left: 4px solid #000;
+      padding: 16px 22px; background: #f7f7f7; text-align: left; }
+    .objective { border-left-color: #555; background: #f0f0f0; }
+    .challenge strong, .objective strong { display: block; margin-bottom: 8px; font-size: 16px; }
+    .challenge p, .objective p { margin: 0 0 8px; font-size: 15px; color: #333; line-height: 1.7; }
+    .challenge p:last-child, .objective p:last-child { margin: 0; }
+    figure { margin: 0 auto 32px; text-align: center; max-width: 720px; }
+    figure img { display: block; width: 100%; max-height: 560px; object-fit: contain; margin: 0 auto; }
+    figcaption { margin: 10px auto 0; font-size: 13px; font-style: italic; color: #666; max-width: 600px; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 36px; }
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    section { padding: 38px 0; border-top: 1px solid #ccc; }
+    h2 { margin: 0 0 18px; font-size: clamp(24px,4vw,36px); }
+    h3 { margin: 0 0 10px; font-size: 20px; }
+    p { margin: 0 0 14px; color: #222; font-size: 17px; }
+    .lead { font-size: 18px; color: #111; }
+    .img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0; }
+    .img-row figure { margin: 0; }
+    .img-row img { width: 100%; max-height: 340px; object-fit: contain; }
+    .pieces-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 20px 0; }
+    .pieces-grid figure { margin: 0; text-align: center; }
+    .pieces-grid img { width: 100%; max-height: 260px; object-fit: contain; }
+    .pieces-grid figcaption { font-size: 13px; font-style: italic; color: #666; margin-top: 6px; }
+    .legal-box { padding: 16px 20px; border: 1px solid #000; border-left: 5px solid #000;
+      font-size: 15px; background: #f9f9f9; margin-top: 16px; line-height: 1.8; }
+    .legal-box strong { color: #000; } .legal-box a { color: #000; }
+    .legal-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 18px; }
+    .legal-item { border: 1px solid #000; padding: 16px; font-size: 14px; }
+    .legal-item strong { display: block; margin-top: 4px; overflow-wrap: anywhere; font-size: 15px; }
+    .card-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 20px; }
+    .card { border: 1px solid #ccc; padding: 18px; }
+    .card h3 { font-size: 16px; margin-bottom: 8px; }
+    .card p { font-size: 15px; margin: 0; color: #444; }
+    .qr-section { text-align: center; border: 2px solid #000; padding: 32px 28px; margin: 32px 0; }
+    .qr-img { display: block; width: 150px; height: 150px; margin: 18px auto; image-rendering: pixelated; }
+    .url { display: inline-block; border: 1px solid #000; padding: 9px 16px; margin-top: 10px;
+      font-size: 14px; overflow-wrap: anywhere; color: #000; text-decoration: none; }
+    .url:hover { background: #000; color: #fff; }
+    footer { border-top: 1px solid #000; text-align: center; padding: 26px 0 38px; font-size: 14px; color: #555; }
+    @media (max-width: 640px) {
+      .img-row, .pieces-grid, .legal-grid, .card-grid { grid-template-columns: 1fr; }
+      .lang-bar { justify-content: center; }
+    }
+
+    
+    nav a { color: #000; text-decoration: none; border: 1px solid #000; padding: 7px 16px; font-size: 14px; }
+    nav a:hover { background: #000; color: #fff; }
+    .nav-soon { color: #000 !important; text-decoration: none !important; background: #f2f2f2 !important; border: 1px solid #ddd !important; padding: 7px 16px; font-size: 14px; cursor: default !important; font-style: italic; }
+
+    </style>
+</head>
+<body>
+<main class="page">
+      <div class="lang-bar">
+    <span>🌐</span>
+    <a href="https://angelschess.github.io/angels-chess-official/shakhmaty-angelov.html">RU</a>
+    <a href="https://angelschess.github.io/angels-chess-official/">EN</a>
+    <a href="https://angelschess.github.io/angels-chess-official/engle-sjakk.html">NO</a>
+    <a href="https://angelschess.github.io/angels-chess-official/ajedrez-de-los-angeles.html">ES</a>
+    <a href="https://angelschess.github.io/angels-chess-official/zh/index.html">中文</a>
+    <a href="https://angelschess.github.io/angels-chess-official/co-vua-thien-than.html" class="active">VI</a>
+    <a href="https://angelschess.github.io/angels-chess-official/hreshtakneri-shakhmat.html">ՀՅ</a>
+    <a href="https://angelschess.github.io/angels-chess-official/echecs-des-anges.html">FR</a>
+    <a href="https://angelschess.github.io/angels-chess-official/engla-skak.html">IS</a>
+    <a href="https://angelschess.github.io/angels-chess-official/melekler-satranci.html">TR</a>
+    <a href="https://angelschess.github.io/angels-chess-official/tenshi-no-chesu.html">日本語</a>
+    <a href="https://angelschess.github.io/angels-chess-official/shachmat-hamalachim.html">עב</a>
+    <a href="https://angelschess.github.io/angels-chess-official/shatranj-malaika.html">عر</a>
+    <a href="https://angelschess.github.io/angels-chess-official/senterej.html">አማ</a>
+  </div>
+
+<nav aria-label="Page sections">
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:4px 0 10px;">
+      <a href="#about">Về Cờ Thiên Thần</a>
+      <a href="#board">Bàn cờ</a>
+      <a href="#pieces">Quân Thiên Thần</a>
+      <a href="#legal">Pháp lý</a>
+      <a href="#research">Nghiên cứu</a>
+      <a href="#qr">Truy cập QR</a>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:8px; padding:0 0 6px;">
+      <a href="#" class="nav-soon">Mua Quy tắc và Luật Trò chơi</a>
+      <a href="#" class="nav-soon">Tải xuống Bộ quy tắc Thuật toán</a>
+    </div>
+    <p style="text-align:center; font-size:12px; color:#999; margin:4px 0 0; font-style:italic; letter-spacing:0.5px;">Sắp ra mắt — đang phát triển</p>
+  </nav>
+
+  <header id="top">
+    <p class="welcome">Chào mừng</p>
+    <h1>Cờ Thiên Thần</h1>
+    <p class="tagline">Một biến thể cờ vua được thiết kế cho kỷ nguyên hợp tác Người–AI.</p>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/Gemini_Generated_Image_guthxtguthxtguth.png" alt=""></figure>
+    <div class="challenge">
+      <strong>Thách thức</strong>
+      <p>Cờ vua là trò chơi hữu hạn, có thể tính toán được — về mặt lý thuyết có thể giải được, nhưng chưa được giải. Các động cơ AI đã tích lũy quá nhiều kiến thức đến mức trực giác, sáng tạo và kinh nghiệm của con người không còn là lợi thế thực sự nữa.</p>
+      <p>Cờ Thiên Thần được thiết kế như một phản hồi cho thực tế mới này. Cơ chế kích hoạt có điều kiện của nó tạo ra sự không chắc chắn về mặt cấu trúc mà không có động cơ nào có thể dự đoán đầy đủ.</p>
+    </div>
+    <div class="objective">
+      <strong>Mục tiêu</strong>
+      <p>Khôi phục cuộc cạnh tranh công bằng và cân bằng giữa con người và máy móc. Cờ Thiên Thần giới thiệu một chiều logic mới — không phải nhiều quân cờ hơn, không phải bàn cờ lớn hơn, mà là một loại quan hệ nhân quả có điều kiện mới.</p>
+      <p>Biến thể này cũng cho phép một hình thức hợp tác mới: con người và AI có thể cùng nhau khám phá một không gian mà không ai có lợi thế tích lũy.</p>
+    </div>
+    
+  </header>
+    
+  <section id="about">
+    <h2>Về Cờ Thiên Thần</h2>
+    <p class="lead">Cờ Thiên Thần được tạo ra từ một câu hỏi đơn giản: cờ vua có thể tiếp tục phát triển trong kỷ nguyên mà AI đã vượt qua người chơi không?</p>
+    <p>Trong nhiều thế kỷ, cờ vua đã đại diện cho một trong những thành tựu trí tuệ vĩ đại nhất của nhân loại. Ngày nay, thi đấu đỉnh cao ngày càng phụ thuộc vào sự chuẩn bị được hỗ trợ bởi AI.</p><p>Cờ Thiên Thần được tạo ra như một phản hồi. Nó bảo tồn các nền tảng quen thuộc của cờ vua truyền thống và giới thiệu môi trường chiến lược hoàn toàn mới: bàn cờ 68 ô, bốn ô Cánh Thiên Thần, hai Thiên Thần mỗi người chơi và cơ chế kích hoạt có điều kiện độc đáo.</p><p>Không giống như tất cả các quân cờ truyền thống, Thiên Thần không có cùng khả năng trong suốt trò chơi. Nó bắt đầu ở trạng thái không hoạt động và chỉ trở nên hoàn toàn hoạt động khi đối thủ vượt qua biên giới lãnh thổ.</p>
+    <p>Cờ Thiên Thần giới thiệu một khái niệm mới: <strong>quân cờ phụ thuộc vào trạng thái</strong>. Khả năng của Thiên Thần phụ thuộc vào lịch sử phát triển của vị trí, không chỉ hình học.</p><p>Mục tiêu không phải là làm cho cờ vua ngẫu nhiên. Mục tiêu là thưởng cho sự sáng tạo hơn ghi nhớ.</p><p>Cờ Thiên Thần cũng là nền tảng nghiên cứu thú vị cho AI, không dựa vào nhiều thế kỷ lý thuyết khai cuộc hiện có.</p>
+    <p><em>Mỗi ván cờ bắt đầu như lãnh thổ chưa được khám phá. Mỗi vị trí mời gọi ý tưởng mới. Mỗi cuộc xâm lăng mang hậu quả.</em></p>
+  </section>
+  <section id="board">
+    <h2>Bàn Cờ Chính Thức</h2>
+    <div class="img-row">
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image7.png" alt=""><figcaption>Bàn cờ 68 ô chính thức với bốn phần mở rộng Cánh Thiên Thần bên cạnh.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image15.png" alt=""><figcaption>Hệ thống tọa độ chính thức: cột a–h và ô bên cạnh x4, x5, y4 và y5.</figcaption></figure>
+    </div>
+    <p>Thứ tự cột từ bên trái của Trắng: <strong>X, a, b, c, d, e, f, g, h, Y</strong>. Thiên Thần được viết tắt là <strong>G</strong>.</p>
+    <div class="legal-box"><strong>Thiết kế công nghiệp EU đã đăng ký:</strong> Bàn cờ 68 ô — EUIPO Số <strong>015110333-0001</strong></div>
+  
+    <p>Chúng tôi cầm bàn cờ vua cổ điển 8×8 và đặt câu hỏi: nếu có thêm bốn ô nữa — hai ô mỗi bên, đúng nơi các Thiên Thần bắt đầu, thì sao? Kết quả là một bàn cờ 68 ô. Lưới trung tâm hoạt động hoàn toàn như trong cờ vua cổ điển. Bốn ô mới — x4, x5, y4 và y5 — được gọi là Cánh Thiên Thần. Chúng là những ô thật: bất kỳ quân nào cũng có thể vào, phong tỏa hoặc ăn trên đó.</p>
+    <p>Chúng tôi cũng tạo ra một ranh giới. Hàng 4 và hàng 5 tạo thành Biên Giới — đường phân chia hai vùng lãnh thổ. Khi một quân đối thủ vượt qua Biên Giới của bạn, các Thiên Thần của bạn thức dậy. Đó là trái tim của trò chơi.</p>
+  
+    </section>
+  <section id="pieces">
+    <h2>Các Quân Thiên Thần</h2>
+    <p class="lead">Mỗi người chơi bắt đầu với 18 quân: 16 quân truyền thống cộng 2 Thiên Thần.</p>
+    <figure><img src="https://angelschess.github.io/angels-chess-official/image2.png" alt=""><figcaption>Thiên Thần Trắng và Thiên Thần Đen — thiết kế hai màu lấy cảm hứng từ tốt.</figcaption></figure>
+    <div class="pieces-grid">
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image16.png" alt=""><figcaption>Thiên Thần Trắng — mặt trước.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image17.png" alt=""><figcaption>Thiên Thần Đen — mặt trước.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image18.png" alt=""><figcaption>Thiên Thần Trắng — phối cảnh.</figcaption></figure>
+      <figure><img src="https://angelschess.github.io/angels-chess-official/image19.png" alt=""><figcaption>Thiên Thần Đen — phối cảnh.</figcaption></figure>
+    </div>
+    <div class="legal-box"><strong>Thiết kế công nghiệp EU đã đăng ký:</strong><br>Thiên Thần Đen — EUIPO Số <strong>015111340-0001</strong><br>Thiên Thần Trắng — EUIPO Số <strong>015111340-0002</strong></div>
+  
+    <p>Chúng tôi thiết kế một quân cờ không tấn công trước. Thiên Thần bắt đầu trong trạng thái ngủ — chiếm ô của nó, chặn các đường, nhưng không thể di chuyển hay kiểm soát. Nó chờ đợi. Đây không phải là điểm yếu. Đây là quyết định thiết kế có chủ ý: một quân cờ có sức mạnh phụ thuộc hoàn toàn vào những gì đối thủ chọn làm.</p>
+    <p>Khi đối thủ vượt qua Biên Giới, Thiên Thần được kích hoạt. Từ thời điểm đó, nó di chuyển đúng 3 ô theo đường thẳng — ngang, dọc hoặc chéo — miễn là cả hai ô trung gian đều trống. Nó không thể ăn các quân truyền thống. Nó kiểm soát ô mà nó có thể đến, dù ô đó đã bị chiếm. Nếu vua đứng trên ô bị kiểm soát, đó là chiếu.</p>
+    <p>Điều này tạo ra cái chúng tôi gọi là <strong>nút bất ngờ</strong>: một khoảnh khắc trong cây trò chơi khi một nước đi có vẻ hoàn toàn tấn công — vượt qua Biên Giới — đột nhiên tạo ra những khả năng phòng thủ mới cho đối thủ. Vị trí phân nhánh theo cách mà không có động cơ nào được đào tạo trên cờ vua cổ điển có thể dự đoán đầy đủ. Cuộc xâm lăng kích hoạt điều gì đó chưa từng tồn tại trước đó.</p>
+    <p>Một quy tắc nữa: trước khi trò chơi bắt đầu, Đen di chuyển một Thiên Thần 3 ô về phía trung tâm. Đây là khai cuộc sơ bộ — bắt buộc, đơn giản và không kích hoạt bất cứ điều gì.</p>
+    <p><em>Nếu bạn yêu cờ vua, trò chơi này được tạo ra cho bạn. Bàn cờ sẽ cảm thấy quen thuộc. Các quy tắc thì ít. Nhưng khoảnh khắc một Thiên Thần được kích hoạt — và lãnh thổ thay đổi — bạn sẽ hiểu tại sao chúng tôi xây dựng nó. Hãy đến và chơi.</em></p>
+  </section>
+
+  <section id="why-angels" style="padding:38px 0; border-top:1px solid #ccc;">
+    <h2>Tại sao Cờ Thiên Thần?</h2>
+    <p class="lead"><em>Từ góc độ thiết kế trò chơi và lý thuyết tính toán</em></p>
+
+    <h3>1. Sự kết thúc của lý thuyết khai cuộc tích lũy</h3>
+    <p>Cờ vua hiện đại đã được lý thuyết hóa sâu sắc bởi máy tính. Stockfish, Leela Chess Zero và AlphaZero đã phân tích hàng triệu ván cờ và tạo ra kiến thức khai cuộc kéo dài đến nước đi thứ 30 trở lên. Một quân cờ tạo ra các nút bất ngờ làm vô hiệu hóa kiến thức tích lũy đó từ nước đi đầu tiên, buộc cả hai người chơi — con người và máy móc — phải suy luận từ các nguyên tắc chiến lược cơ bản.</p>
+
+    <h3>2. Sự sụp đổ của các động cơ cờ vua truyền thống</h3>
+    <p>Các động cơ dựa trên alpha-beta pruning đối mặt với vụ nổ tổ hợp khi gặp Thiên Thần. Nhưng vấn đề không chỉ là quy mô: cây tìm kiếm không còn là tĩnh. Giá trị của mỗi nút phụ thuộc vào một biến ngoài bàn cờ — trạng thái kích hoạt của Thiên Thần — không tồn tại trong cờ vua cổ điển. Trò chơi thưởng cho trực giác con người và sự linh hoạt tâm lý hơn là tính toán sâu, cứng nhắc.</p>
+
+    <h3>3. Sự không chắc chắn về cấu trúc: Kế hoạch B vĩnh viễn</h3>
+    <p>Cờ vua cổ điển là một cuộc chiến trừu tượng hoàn hảo: tất cả thông tin đều hiển thị, không có tính ngẫu nhiên, không có sương mù. Thiên Thần đưa vào sương mù theo cách có cấu trúc, không ngẫu nhiên. Mỗi bước tiến lãnh thổ kích hoạt các nguồn lực trước đây không tồn tại. Người chơi xâm lược biết mình đang làm gì — nhưng không thể tính toán chính xác vị trí nào sẽ xuất hiện từ sự kích hoạt đó trong tương lai. Kế hoạch B không còn là lựa chọn mà trở thành nhu cầu chiến lược vĩnh viễn.</p>
+
+    <h3>4. Thông tin bất đối xứng và nhân quả bị hoãn</h3>
+    <p>Trong cờ vua cổ điển, tất cả thông tin luôn nằm trên bàn cờ — đây là trò chơi thông tin hoàn hảo. Thiên Thần đưa vào điều gì đó mới về mặt chất lượng: một biến mà thời điểm thay đổi phụ thuộc vào quyết định tương lai của đối thủ. Đây không phải là sự không chắc chắn ngẫu nhiên. Đây là sự không chắc chắn chiến lược. Điều này chưa bao giờ xảy ra trong lịch sử cờ vua.</p>
+
+    <div style="border-left:4px solid #000; padding:16px 22px; background:#f7f7f7; margin-top:32px;">
+      <h3 style="margin-top:0;">Một thông điệp từ tương lai</h3>
+      <p><em>Cờ Thiên Thần không sinh ra để cạnh tranh với cờ vua cổ điển. Nó sinh ra để kéo dài nó.</em></p>
+      <p>Khi AlphaZero chứng minh năm 2017 rằng một hệ thống có thể học từ đầu — không có kiến thức trước, không có lý thuyết khai cuộc, không có cơ sở dữ liệu — có thể vượt qua Stockfish trong vài giờ, thế giới chứng kiến điều gì đó vượt ra ngoài cờ vua: bằng chứng rằng học thuần túy có thể vượt qua kiến thức tích lũy.</p>
+      <p>Cờ Thiên Thần mang cùng logic đó đến bàn cờ vật lý. Mỗi ván cờ bắt đầu từ số không. Không có động cơ nào tích lũy lợi thế. Không có cơ sở dữ liệu nào giúp đỡ. Người chơi biết đọc khoảnh khắc kích hoạt — hiểu khi nào xâm lược và khi nào chờ đợi — có lợi thế mà không thuật toán nào có thể mua bằng thời gian tính toán.</p>
+      <p><em>Đây là bàn cờ của tương lai: không lớn hơn, không nhanh hơn, nhưng trung thực hơn về mặt cấu trúc. Một bàn cờ nơi trí tuệ con người và trí tuệ nhân tạo có thể ngồi đối mặt nhau, không ai đến với câu trả lời đã chuẩn bị sẵn. Trò chơi đang chờ đợi cả hai.</em></p>
+    </div>
+  </section>
+  <section id="heritage" style="padding:38px 0; border-top:1px solid #ccc;">
+    <h2>Một Trò Chơi Thuộc Về Tất Cả Mọi Người</h2>
+    <p class="lead" style="margin-bottom:28px;">Cờ Thiên Thần được xây dựng trên vai của một trò chơi đã định hình các nền văn minh. Mỗi ngôn ngữ trên trang web này mang một lịch sử.</p>
+    <div style="border-left: 4px solid #000; padding:20px 24px; background:#f9f9f9;">
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">RU — Tiếng Nga</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Nơi bàn cờ là chiến trường triết học và cái nôi của triều đại vĩnh cửu các titan trí tuệ.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">EN — Tiếng Anh</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Ngôn ngữ đã phổ quát hóa trò chơi, được đánh dấu bởi thiên tài đơn độc và đột phá của Bobby Fischer.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">NO — Tiếng Na Uy</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Gương phản chiếu của thời đại hiện đại, nơi trực giác và sự lạnh lùng tuyệt đối của Magnus Carlsen định nghĩa lại giới hạn con người.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">ES — Tiếng Tây Ban Nha</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Sự thanh lịch vượt thời gian và thơ ca trên bàn cờ, từ thiên tài tự nhiên của Capablanca đến thế hệ mới đang định hình lại cờ vua Iberia.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">中文 — Tiếng Trung</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Sự kiên nhẫn nghìn năm và kỷ luật tập thể hướng tới sự thống trị tuyệt đối của tầng lớp tinh hoa ngày nay.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">VI — Tiếng Việt</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Năng lượng sôi động và sự sắc bén chiến thuật của một cường quốc mới đang biến đổi Đông Nam Á.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">ՀՅ — Tiếng Armenia</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Một quốc gia nơi cờ vua không phải là sở thích mà là hình thức bản sắc dân tộc và sự sinh tồn trí tuệ.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">FR — Tiếng Pháp</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Truyền thống cổ điển và sự tinh tế chiến lược đã định hình tư tưởng cờ vua phương Tây.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">IS — Tiếng Iceland</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Sự cô lập địa lý biến thành thần bí, nhân chứng vĩnh cửu của cuộc đụng độ địa chính trị huyền thoại năm 1972.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">TR — Tiếng Thổ Nhĩ Kỳ</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Sự gieo hạt âm thầm của các thế hệ mới đang xây dựng tương lai của bàn cờ.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">日本語 — Tiếng Nhật</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Cây cầu công nghệ giữa truyền thống chiến thuật phương Đông nghìn năm và cờ vua toàn cầu.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">עב — Tiếng Hebrew</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Sự sắc bén phân tích và sự theo đuổi không ngừng sự hoàn hảo chiến thuật qua các thế hệ.</p>
+      </div>
+      <div style="margin-bottom:14px;">
+        <strong style="font-size:15px;">عر — Tiếng Ả Rập</strong>
+        <p style="margin:4px 0 0; font-size:15px; color:#333;">Tiếng vang của tổ tiên Shatranj, cội nguồn huyền thoại nơi tất cả bắt đầu hơn một nghìn năm trước.</p>
+      </div>
+    </div>
+  </section>
+  <section id="qr">
+    <div class="qr-section">
+      <img class="qr-img" src="https://angelschess.github.io/angels-chess-official/qrcode-angel-chess.png" alt="">
+      <div><a class="url" href="https://angelschess.github.io/angels-chess-official/">angelschess.github.io/angels-chess-official/</a></div>
+    </div>
+  </section>
+  <section id="legal">
+    <h2>Tài liệu tham khảo pháp lý và đăng ký</h2>
+    <div class="legal-grid">
+      <div class="legal-item">Bàn cờ 68 ô<strong>EUIPO 015110333-0001</strong></div>
+      <div class="legal-item">Thiên Thần Đen<strong>EUIPO 015111340-0001</strong></div>
+      <div class="legal-item">Thiên Thần Trắng<strong>EUIPO 015111340-0002</strong></div>
+    </div>
+    <div class="legal-box" style="margin-top:16px;">
+      <strong>Bản quyền:</strong> © 2025–2026 Nuño Alberto Valenzuela Alonso. Bảo lưu mọi quyền.<br><strong>Safe Creative:</strong> Đã đăng ký.<br><br>
+      <strong>Kho lưu trữ:</strong> <a href="https://github.com/AngelsChess/angels-chess-official">github.com/AngelsChess/angels-chess-official</a><br><strong>Xác minh EUIPO:</strong> euipo.europa.eu/eSearch · Số 015110333-0001
+    </div>
+    <div class="legal-box" style="margin-top:14px; border-left-color:#555;">
+      <strong>Đang tiến hành:</strong><br>· Hình thức hóa thuật toán của các quy tắc (Mô hình hóa không gian trạng thái).<br>· <strong>Sắp xuất bản:</strong> Quy tắc và luật trò chơi (Phiên bản đầy đủ).<br>· Đang dịch sang mô hình dữ liệu toán học.
+    </div>
+  </section>
+  <footer><strong>Cờ Thiên Thần</strong> · © 2025–2026 Nuño Alberto Valenzuela Alonso.</footer>
+
+</main>
+</body>
+</html>
